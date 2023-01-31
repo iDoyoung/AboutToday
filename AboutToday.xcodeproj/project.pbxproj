@@ -18,6 +18,8 @@
 		7F11B65D298898E9001F879F /* NetworkAPIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11B65C298898E9001F879F /* NetworkAPIConfiguration.swift */; };
 		7F11B65F298899E4001F879F /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11B65E298899E4001F879F /* Requester.swift */; };
 		7F11B6632988B5EF001F879F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11B6622988B5EF001F879F /* Endpoint.swift */; };
+		7F11B6652988B8C7001F879F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11B6642988B8C7001F879F /* NetworkService.swift */; };
+		7F11B6672988D3C3001F879F /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11B6662988D3C3001F879F /* NetworkServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		7F11B65C298898E9001F879F /* NetworkAPIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIConfiguration.swift; sourceTree = "<group>"; };
 		7F11B65E298899E4001F879F /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		7F11B6622988B5EF001F879F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		7F11B6642988B8C7001F879F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		7F11B6662988D3C3001F879F /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				7F11B637298890B0001F879F /* AboutTodayTests.swift */,
+				7F11B6662988D3C3001F879F /* NetworkServiceTests.swift */,
 			);
 			path = AboutTodayTests;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				7F11B65C298898E9001F879F /* NetworkAPIConfiguration.swift */,
 				7F11B65E298899E4001F879F /* Requester.swift */,
 				7F11B6622988B5EF001F879F /* Endpoint.swift */,
+				7F11B6642988B8C7001F879F /* NetworkService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -325,6 +331,7 @@
 				7F11B621298890AF001F879F /* AppDelegate.swift in Sources */,
 				7F11B6632988B5EF001F879F /* Endpoint.swift in Sources */,
 				7F11B623298890AF001F879F /* SceneDelegate.swift in Sources */,
+				7F11B6652988B8C7001F879F /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F11B6672988D3C3001F879F /* NetworkServiceTests.swift in Sources */,
 				7F11B638298890B0001F879F /* AboutTodayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
