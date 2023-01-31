@@ -17,6 +17,7 @@
 		7F11B644298890B0001F879F /* AboutTodayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11B643298890B0001F879F /* AboutTodayUITestsLaunchTests.swift */; };
 		7F11B65D298898E9001F879F /* NetworkAPIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11B65C298898E9001F879F /* NetworkAPIConfiguration.swift */; };
 		7F11B65F298899E4001F879F /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11B65E298899E4001F879F /* Requester.swift */; };
+		7F11B6632988B5EF001F879F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11B6622988B5EF001F879F /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		7F11B643298890B0001F879F /* AboutTodayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTodayUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7F11B65C298898E9001F879F /* NetworkAPIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIConfiguration.swift; sourceTree = "<group>"; };
 		7F11B65E298899E4001F879F /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
+		7F11B6622988B5EF001F879F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 			children = (
 				7F11B65C298898E9001F879F /* NetworkAPIConfiguration.swift */,
 				7F11B65E298899E4001F879F /* Requester.swift */,
+				7F11B6622988B5EF001F879F /* Endpoint.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				7F11B65D298898E9001F879F /* NetworkAPIConfiguration.swift in Sources */,
 				7F11B625298890AF001F879F /* ViewController.swift in Sources */,
 				7F11B621298890AF001F879F /* AppDelegate.swift in Sources */,
+				7F11B6632988B5EF001F879F /* Endpoint.swift in Sources */,
 				7F11B623298890AF001F879F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
