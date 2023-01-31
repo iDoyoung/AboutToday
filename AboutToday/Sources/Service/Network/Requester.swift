@@ -27,7 +27,7 @@ protocol Requester {
     var queryParameters: [String: String] { get }
     var bodyParameters: [String: Any] { get }
     
-    func urlRequest(with networkConfiguration: NetworkAPIConfigurable) throws -> URLRequest
+    func requestURL(with networkConfiguration: NetworkAPIConfigurable) throws -> URLRequest
 }
 
 extension Requester {
