@@ -33,7 +33,7 @@ final class NetworkDataCodableService: NetworkDataCodableServiceProtocol {
     }
     
     func request<E: ResponseRequester>(with endpoint: E) async throws -> Void {
-        let response = try await network.request(endpoint: endpoint)
+        _ = try await network.request(endpoint: endpoint)
         return
     }
     
