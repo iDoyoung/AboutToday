@@ -23,6 +23,7 @@
 		7FC08AF32989E6450019538E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF22989E6450019538E /* Weather.swift */; };
 		7FC08AF52989EAC70019538E /* NetworkDataCodableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */; };
 		7FC08AF7298A17880019538E /* NetworkCodableServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */; };
+		7FC08B05298A60440019538E /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08B04298A60440019538E /* APIEndpoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataCodableService.swift; sourceTree = "<group>"; };
 		7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCodableServiceTests.swift; sourceTree = "<group>"; };
 		7FC08AFD298A56840019538E /* ConfidentialKey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfidentialKey.xcconfig; sourceTree = "<group>"; };
+		7FC08B04298A60440019538E /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 		7FC08AFA298A554F0019538E /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				7FC08B04298A60440019538E /* APIEndpoints.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				7F11B65F298899E4001F879F /* Requester.swift in Sources */,
 				7F11B65D298898E9001F879F /* NetworkAPIConfiguration.swift in Sources */,
 				7F11B625298890AF001F879F /* ViewController.swift in Sources */,
+				7FC08B05298A60440019538E /* APIEndpoints.swift in Sources */,
 				7F11B621298890AF001F879F /* AppDelegate.swift in Sources */,
 				7F11B6632988B5EF001F879F /* Endpoint.swift in Sources */,
 				7F11B623298890AF001F879F /* SceneDelegate.swift in Sources */,
