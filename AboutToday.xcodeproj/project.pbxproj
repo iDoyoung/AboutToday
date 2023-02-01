@@ -21,6 +21,8 @@
 		7F11B6652988B8C7001F879F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11B6642988B8C7001F879F /* NetworkService.swift */; };
 		7F11B6672988D3C3001F879F /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11B6662988D3C3001F879F /* NetworkServiceTests.swift */; };
 		7FC08AF32989E6450019538E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF22989E6450019538E /* Weather.swift */; };
+		7FC08AF52989EAC70019538E /* NetworkDataCodableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */; };
+		7FC08AF7298A17880019538E /* NetworkCodableServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		7F11B6642988B8C7001F879F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7F11B6662988D3C3001F879F /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		7FC08AF22989E6450019538E /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataCodableService.swift; sourceTree = "<group>"; };
+		7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCodableServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 			children = (
 				7F11B637298890B0001F879F /* AboutTodayTests.swift */,
 				7F11B6662988D3C3001F879F /* NetworkServiceTests.swift */,
+				7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */,
 			);
 			path = AboutTodayTests;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 				7F11B65E298899E4001F879F /* Requester.swift */,
 				7F11B6622988B5EF001F879F /* Endpoint.swift */,
 				7F11B6642988B8C7001F879F /* NetworkService.swift */,
+				7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -337,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FC08AF32989E6450019538E /* Weather.swift in Sources */,
+				7FC08AF52989EAC70019538E /* NetworkDataCodableService.swift in Sources */,
 				7F11B65F298899E4001F879F /* Requester.swift in Sources */,
 				7F11B65D298898E9001F879F /* NetworkAPIConfiguration.swift in Sources */,
 				7F11B625298890AF001F879F /* ViewController.swift in Sources */,
@@ -351,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FC08AF7298A17880019538E /* NetworkCodableServiceTests.swift in Sources */,
 				7F11B6672988D3C3001F879F /* NetworkServiceTests.swift in Sources */,
 				7F11B638298890B0001F879F /* AboutTodayTests.swift in Sources */,
 			);
