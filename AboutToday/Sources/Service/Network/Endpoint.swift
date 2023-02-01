@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Endpoint<R>: Requester {
+struct Endpoint<R>: ResponseRequester {
     
     typealias Response = R
     

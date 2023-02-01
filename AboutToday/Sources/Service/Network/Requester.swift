@@ -19,6 +19,10 @@ enum HTTPMethodType: String {
     case delete = "DELETE"
 }
 
+protocol ResponseRequester: Requester {
+    associatedtype Response
+}
+
 protocol Requester {
     var path: String { get }
     var isFullPath: Bool { get }
