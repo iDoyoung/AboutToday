@@ -63,6 +63,7 @@
 		7FC08AF22989E6450019538E /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataCodableService.swift; sourceTree = "<group>"; };
 		7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCodableServiceTests.swift; sourceTree = "<group>"; };
+		7FC08AFD298A56840019538E /* ConfidentialKey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfidentialKey.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,9 +153,10 @@
 			isa = PBXGroup;
 			children = (
 				7FC08AF12989E6360019538E /* Models */,
-				7F11B658298897A1001F879F /* Service */,
-				7F11B65429889173001F879F /* Scenes */,
 				7F11B650298890DC001F879F /* Entries */,
+				7F11B658298897A1001F879F /* Service */,
+				7FC08AFA298A554F0019538E /* Workers */,
+				7F11B65429889173001F879F /* Scenes */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -164,6 +166,7 @@
 			children = (
 				7F11B62E298890B0001F879F /* Info.plist */,
 				7F11B62B298890B0001F879F /* LaunchScreen.storyboard */,
+				7FC08AFD298A56840019538E /* ConfidentialKey.xcconfig */,
 			);
 			path = Supportings;
 			sourceTree = "<group>";
@@ -210,6 +213,13 @@
 				7FC08AF22989E6450019538E /* Weather.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7FC08AFA298A554F0019538E /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Workers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,6 +412,7 @@
 /* Begin XCBuildConfiguration section */
 		7F11B645298890B0001F879F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FC08AFD298A56840019538E /* ConfidentialKey.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -462,6 +473,7 @@
 		};
 		7F11B646298890B0001F879F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FC08AFD298A56840019538E /* ConfidentialKey.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -540,6 +552,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WEATHER_API_BASE_URL = "https://api.openweathermap.org/data/2.5";
 			};
 			name = Debug;
 		};
@@ -569,6 +582,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WEATHER_API_BASE_URL = "https://api.openweathermap.org/data/2.5";
 			};
 			name = Release;
 		};
