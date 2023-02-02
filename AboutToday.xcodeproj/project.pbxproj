@@ -24,6 +24,10 @@
 		7FC08AF52989EAC70019538E /* NetworkDataCodableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */; };
 		7FC08AF7298A17880019538E /* NetworkCodableServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */; };
 		7FC08B05298A60440019538E /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08B04298A60440019538E /* APIEndpoints.swift */; };
+		7FC08B0A298B456D0019538E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08B09298B456D0019538E /* TodayViewController.swift */; };
+		7FC08B0C298B46500019538E /* TodayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08B0B298B46500019538E /* TodayInteractor.swift */; };
+		7FC08B0E298B46600019538E /* TodayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08B0D298B46600019538E /* TodayPresenter.swift */; };
+		7FC08B10298B46710019538E /* TodayRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08B0F298B46710019538E /* TodayRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +70,10 @@
 		7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCodableServiceTests.swift; sourceTree = "<group>"; };
 		7FC08AFD298A56840019538E /* ConfidentialKey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfidentialKey.xcconfig; sourceTree = "<group>"; };
 		7FC08B04298A60440019538E /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
+		7FC08B09298B456D0019538E /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		7FC08B0B298B46500019538E /* TodayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInteractor.swift; sourceTree = "<group>"; };
+		7FC08B0D298B46600019538E /* TodayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPresenter.swift; sourceTree = "<group>"; };
+		7FC08B0F298B46710019538E /* TodayRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				7F11B624298890AF001F879F /* ViewController.swift */,
+				7FC08B06298B45450019538E /* Today */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -223,6 +232,17 @@
 				7FC08B04298A60440019538E /* APIEndpoints.swift */,
 			);
 			path = Workers;
+			sourceTree = "<group>";
+		};
+		7FC08B06298B45450019538E /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				7FC08B09298B456D0019538E /* TodayViewController.swift */,
+				7FC08B0B298B46500019538E /* TodayInteractor.swift */,
+				7FC08B0D298B46600019538E /* TodayPresenter.swift */,
+				7FC08B0F298B46710019538E /* TodayRouter.swift */,
+			);
+			path = Today;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,16 +375,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FC08B0C298B46500019538E /* TodayInteractor.swift in Sources */,
 				7FC08AF32989E6450019538E /* Weather.swift in Sources */,
 				7FC08AF52989EAC70019538E /* NetworkDataCodableService.swift in Sources */,
+				7FC08B0E298B46600019538E /* TodayPresenter.swift in Sources */,
 				7F11B65F298899E4001F879F /* Requester.swift in Sources */,
 				7F11B65D298898E9001F879F /* NetworkAPIConfiguration.swift in Sources */,
 				7F11B625298890AF001F879F /* ViewController.swift in Sources */,
 				7FC08B05298A60440019538E /* APIEndpoints.swift in Sources */,
+				7FC08B10298B46710019538E /* TodayRouter.swift in Sources */,
 				7F11B621298890AF001F879F /* AppDelegate.swift in Sources */,
 				7F11B6632988B5EF001F879F /* Endpoint.swift in Sources */,
 				7F11B623298890AF001F879F /* SceneDelegate.swift in Sources */,
 				7F11B6652988B8C7001F879F /* NetworkService.swift in Sources */,
+				7FC08B0A298B456D0019538E /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

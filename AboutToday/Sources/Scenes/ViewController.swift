@@ -7,6 +7,7 @@
 
 import UIKit
 
+///Base parent UIViewController to check for Memory leak
 class ViewController: UIViewController {
     
     deinit {
