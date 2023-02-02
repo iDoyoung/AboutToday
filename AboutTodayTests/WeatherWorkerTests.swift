@@ -35,7 +35,7 @@ final class WeatherWorkerTests: XCTestCase {
     }
     
     //MARK: - Tests
-    func test_() async throws {
+    func test_getWeather_shouldBeCallRepository() async throws {
         _ = try await sut.getWeather(latitude: "", longitude: "")
         XCTAssert(repositorySpy.calledFetchWeather)
     }
