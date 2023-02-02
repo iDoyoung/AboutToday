@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class WeatherWorker {
+class WeatherWorker {
     
     private let weatherRepository: WeatherRepository
    
