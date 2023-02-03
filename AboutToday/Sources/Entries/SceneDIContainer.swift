@@ -10,8 +10,7 @@ import Foundation
 final class SceneDIContainer {
     
     private func makeWeatherService() -> NetworkDataCodableService {
-
-        let configuration = NetworkAPIConfiguration(baseURL: getOpenWeatherBaseURL())
+        let configuration = NetworkAPIConfiguration(baseURL: getOpenWeatherBaseURL(), queryParameters: [ConfidentialKey.openWeatherAPI.key: ConfidentialKey.openWeatherAPI.value])
         let service = NetworkService(configuration: configuration)
         return NetworkDataCodableService(network: service)
     }
@@ -43,6 +42,20 @@ final class SceneDIContainer {
 }
 
 extension SceneDIContainer {
+    
+    enum ConfidentialKey {
+        enum openWeatherAPI {
+            static let key = "appid"
+            static let value = getAppID()
+        }
+        
+        private static func getAppID() -> String {
+            guard let appID = Bundle.main.object(forInfoDictionaryKey: "Weather_api_key") as? String else {
+                fatalError("Weather_api_key must not be empty")
+            }
+            return appID
+        }
+    }
     
     private func getOpenWeatherBaseURL() -> URL {
         guard let provided = Bundle.main.object(forInfoDictionaryKey: "Weather_api_base_url") as? String else {

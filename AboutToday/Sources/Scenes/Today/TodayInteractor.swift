@@ -8,10 +8,11 @@
 import UIKit
 
 protocol TodayBusinessLogic {
-    func loadWeather(latitude: String, longitude: String) async throws
+    func loadWeather()
 }
 
 protocol TodayDataStore {
+    var weather: Weather? { get }
 }
 
 final class TodayInteractor: TodayBusinessLogic, TodayDataStore {
@@ -23,23 +24,18 @@ final class TodayInteractor: TodayBusinessLogic, TodayDataStore {
         self.weatherWorker = weatherWorker
     }
     
-    //MARK: - Input
-    func loadWeather(latitude: String, longitude: String) async throws {
-        do {
-            weather = try await weatherWorker.getWeather(latitude: latitude, longitude: longitude)
-        } catch let error {
-            errorOfWeather = error
+    func loadWeather() {
+        Task {
+            do {
+                weather = try await weatherWorker.getWeather(latitude: "40.78", longitude: "73.97")
+                print(weather)
+                //presenter?.presentWeather(response: weather)
+            } catch let error {
+                print(error)
+            }
         }
     }
     
     //MARK: - Output
-    var weather: Weather? = nil {
-        didSet {
-        }
-    }
-    
-    var errorOfWeather: Error? = nil {
-        didSet {
-        }
-    }
+    var weather: Weather?
 }

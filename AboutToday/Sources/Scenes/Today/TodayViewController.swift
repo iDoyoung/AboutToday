@@ -8,9 +8,12 @@
 import UIKit
 
 protocol TodayDisplayLogic: AnyObject {
+    func displayNavigationBarLeftItem(weather image: UIImage)
 }
 
 final class TodayViewController: ViewController, TodayDisplayLogic {
+    
+    var interactor: TodayBusinessLogic?
     
     lazy var navigationLeftBarButtonItem: UIBarButtonItem = {
         let barbuttionItem = UIBarButtonItem(image: UIImage(systemName: "questionmark"), style: .plain, target: self, action: nil)
@@ -26,6 +29,7 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        interactor?.loadWeather()
     }
     
     private func setupNavigationBar() {
