@@ -20,6 +20,7 @@
 		7F11B6632988B5EF001F879F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11B6622988B5EF001F879F /* Endpoint.swift */; };
 		7F11B6652988B8C7001F879F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11B6642988B8C7001F879F /* NetworkService.swift */; };
 		7F11B6672988D3C3001F879F /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11B6662988D3C3001F879F /* NetworkServiceTests.swift */; };
+		7FAD0FF3298CCDA6009E452E /* SceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD0FF2298CCDA6009E452E /* SceneDIContainer.swift */; };
 		7FC08AF32989E6450019538E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF22989E6450019538E /* Weather.swift */; };
 		7FC08AF52989EAC70019538E /* NetworkDataCodableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */; };
 		7FC08AF7298A17880019538E /* NetworkCodableServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */; };
@@ -70,6 +71,7 @@
 		7F11B6622988B5EF001F879F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		7F11B6642988B8C7001F879F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7F11B6662988D3C3001F879F /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		7FAD0FF2298CCDA6009E452E /* SceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDIContainer.swift; sourceTree = "<group>"; };
 		7FC08AF22989E6450019538E /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataCodableService.swift; sourceTree = "<group>"; };
 		7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCodableServiceTests.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				7F11B620298890AF001F879F /* AppDelegate.swift */,
 				7F11B622298890AF001F879F /* SceneDelegate.swift */,
+				7FAD0FF2298CCDA6009E452E /* SceneDIContainer.swift */,
 			);
 			path = Entries;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				7F11B6632988B5EF001F879F /* Endpoint.swift in Sources */,
 				7F11B623298890AF001F879F /* SceneDelegate.swift in Sources */,
 				7F11B6652988B8C7001F879F /* NetworkService.swift in Sources */,
+				7FAD0FF3298CCDA6009E452E /* SceneDIContainer.swift in Sources */,
 				7FC08B0A298B456D0019538E /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
