@@ -12,7 +12,7 @@ struct Weather: Decodable {
     let id: Int
     let city: String
     let main: Main
-    let weahter: [Weather]
+    let weather: [Weather]
     let wind: Wind
     let coordinate: Coordinate
     
@@ -20,7 +20,7 @@ struct Weather: Decodable {
         case id
         case city = "name"
         case main
-        case weahter
+        case weather
         case wind
         case coordinate = "coord"
     }
