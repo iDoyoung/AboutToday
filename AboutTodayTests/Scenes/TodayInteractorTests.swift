@@ -6,12 +6,14 @@
 //
 
 import XCTest
+import Combine
 @testable import AboutToday
 
 final class TodayInteractorTests: XCTestCase {
 
     //MARK: - System under test
     var sut: TodayInteractor!
+    private var cancellableBag = Set<AnyCancellable>()
     
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -25,11 +27,11 @@ final class TodayInteractorTests: XCTestCase {
     }
     
     //MARK: - Test Doubles
-    let weatherWorkerSpy = WeatherWorkerSpy(weatherRepository: WeatherRepositoryStub())
+    let weatherWorkerSpy = WeatherWorkerSpy(weatherRepository: WeatherRepositoryStub(), weatherIconRepository: WeatherIconRepositoryStub())
     
     class WeatherWorkerSpy: WeatherWorker {
        
-        var weatherWorkerCalled = false
+        @Published var weatherWorkerCalled = false
         
         override func getWeather(latitude: String, longitude: String) async throws -> Weather {
             weatherWorkerCalled = true
@@ -43,9 +45,26 @@ final class TodayInteractorTests: XCTestCase {
         }
     }
     
+    class WeatherIconRepositoryStub: WeatherIconRepository {
+        func fetchImage(with imagePath: String) async throws -> Data {
+            return Data()
+        }
+    }
+    
     //MARK: - Tests
-    func test_loadWeather_shouldWeatherCallWorker() async throws {
-        try await sut.loadWeather(latitude: "", longitude: "")
+    func test_loadWeather_shouldWeatherCallWorker() {
+        let promise = expectation(description: "Worker Be Called")
+        weatherWorkerSpy.$weatherWorkerCalled
+            .sink { isCalled in
+                if isCalled {
+                    promise.fulfill()
+                }
+            }
+            .store(in: &cancellableBag)
+        ///when
+        sut.loadWeather()
+        wait(for: [promise], timeout: 1)
+        ///then
         XCTAssert(weatherWorkerSpy.weatherWorkerCalled)
     }
 }
