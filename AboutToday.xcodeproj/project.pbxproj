@@ -22,6 +22,7 @@
 		7F11B6672988D3C3001F879F /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11B6662988D3C3001F879F /* NetworkServiceTests.swift */; };
 		7FAD0FF3298CCDA6009E452E /* SceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD0FF2298CCDA6009E452E /* SceneDIContainer.swift */; };
 		7FAD0FF6298CE8E1009E452E /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD0FF5298CE8E1009E452E /* WeatherViewModel.swift */; };
+		7FAD0FF8298E356C009E452E /* WeatherIconRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD0FF7298E356C009E452E /* WeatherIconRepository.swift */; };
 		7FC08AF32989E6450019538E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF22989E6450019538E /* Weather.swift */; };
 		7FC08AF52989EAC70019538E /* NetworkDataCodableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */; };
 		7FC08AF7298A17880019538E /* NetworkCodableServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */; };
@@ -74,6 +75,7 @@
 		7F11B6662988D3C3001F879F /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		7FAD0FF2298CCDA6009E452E /* SceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDIContainer.swift; sourceTree = "<group>"; };
 		7FAD0FF5298CE8E1009E452E /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		7FAD0FF7298E356C009E452E /* WeatherIconRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconRepository.swift; sourceTree = "<group>"; };
 		7FC08AF22989E6450019538E /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataCodableService.swift; sourceTree = "<group>"; };
 		7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCodableServiceTests.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				7FC08B18298B5E680019538E /* WeatherRepository.swift */,
+				7FAD0FF7298E356C009E452E /* WeatherIconRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				7FC08B0C298B46500019538E /* TodayInteractor.swift in Sources */,
 				7FAD0FF6298CE8E1009E452E /* WeatherViewModel.swift in Sources */,
 				7FC08AF32989E6450019538E /* Weather.swift in Sources */,
+				7FAD0FF8298E356C009E452E /* WeatherIconRepository.swift in Sources */,
 				7FC08B19298B5E680019538E /* WeatherRepository.swift in Sources */,
 				7FC08B16298B57A70019538E /* WeatherWorker.swift in Sources */,
 				7FC08AF52989EAC70019538E /* NetworkDataCodableService.swift in Sources */,
@@ -632,7 +636,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WEATHER_API_BASE_URL = "https://api.openweathermap.org/data/2.5";
+				WEATHER_API_BASE_URL = "https://api.openweathermap.org";
 			};
 			name = Debug;
 		};
@@ -662,7 +666,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WEATHER_API_BASE_URL = "https://api.openweathermap.org/data/2.5";
+				WEATHER_API_BASE_URL = "https://api.openweathermap.org";
 			};
 			name = Release;
 		};
