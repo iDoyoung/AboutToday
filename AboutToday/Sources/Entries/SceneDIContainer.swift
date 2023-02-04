@@ -15,9 +15,16 @@ final class SceneDIContainer {
         return NetworkDataCodableService(network: service)
     }
     
+    private func makeWeatherIconImageService() -> NetworkDataCodableService {
+        let configuration = NetworkAPIConfiguration(baseURL: getOpenWeatherBaseURL())
+        let service = NetworkService(configuration: configuration)
+        return NetworkDataCodableService(network: service)
+    }
+    
     private func makeWeatherWorker() -> WeatherWorker {
-        let repository = DefaultWeatherRepository(service: makeWeatherService())
-        return WeatherWorker(weatherRepository: repository)
+        let weatherRepository = DefaultWeatherRepository(service: makeWeatherService())
+        let wetherIconRepository = DefaultWeatherIconRepository(service: makeWeatherIconImageService())
+        return WeatherWorker(weatherRepository: weatherRepository, weatherIconRepository: wetherIconRepository)
     }
     
     func makeTodayViewController() -> TodayViewController {
