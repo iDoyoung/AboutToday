@@ -15,7 +15,7 @@ final class WeatherWorkerTests: XCTestCase {
     
     override func setUpWithError() throws {
         try super.setUpWithError()
-        sut = WeatherWorker(weatherRepository: repositorySpy)
+        sut = WeatherWorker(weatherRepository: weatherRepositorySpy, weatherIconRepository: weatherIconRepositorySpy)
     }
 
     override func tearDownWithError() throws {
@@ -23,7 +23,8 @@ final class WeatherWorkerTests: XCTestCase {
     }
 
     //MARK: - Test doubles
-    let repositorySpy = WeatherRepositorySpy()
+    let weatherRepositorySpy = WeatherRepositorySpy()
+    let weatherIconRepositorySpy = WeatherIconRepositorySpy()
     
     class WeatherRepositorySpy: WeatherRepository {
         var calledFetchWeather = false
@@ -34,9 +35,23 @@ final class WeatherWorkerTests: XCTestCase {
         }
     }
     
+    class WeatherIconRepositorySpy: WeatherIconRepository {
+        var calledFetchWeather = false
+        
+        func fetchImage(with imagePath: String) async throws -> Data {
+            calledFetchWeather = true
+            return Data()
+        }
+    }
+    
     //MARK: - Tests
     func test_getWeather_shouldBeCallRepository() async throws {
         _ = try await sut.getWeather(latitude: "", longitude: "")
-        XCTAssert(repositorySpy.calledFetchWeather)
+        XCTAssert(weatherRepositorySpy.calledFetchWeather)
+    }
+    
+    func test_getWeather() async throws {
+        _ = try await sut.getWeatherIcon(with: "")
+        XCTAssert(weatherIconRepositorySpy.calledFetchWeather)
     }
 }
