@@ -12,7 +12,7 @@ enum TodayWeather {
     enum Fetched {
         
         struct Response {
-            let weather: Weather
+            let weather: [Weather.Weather]
         }
         
         struct ViewModel {
