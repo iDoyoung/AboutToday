@@ -18,7 +18,6 @@ final class TodayInteractorTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         sut = TodayInteractor(weatherWorker: weatherWorkerSpy)
-        
     }
 
     override func tearDownWithError() throws {
@@ -28,6 +27,7 @@ final class TodayInteractorTests: XCTestCase {
     
     //MARK: - Test Doubles
     let weatherWorkerSpy = WeatherWorkerSpy(weatherRepository: WeatherRepositoryStub(), weatherIconRepository: WeatherIconRepositoryStub())
+    let todayPresenterSpy = TodayPresenterSpy()
     
     class WeatherWorkerSpy: WeatherWorker {
        
@@ -40,14 +40,25 @@ final class TodayInteractorTests: XCTestCase {
     }
     
     class WeatherRepositoryStub: WeatherRepository {
+        
         func fetchWeather(latitude: String, longitude: String) async throws -> AboutToday.Weather {
             return Seeds.Dummy.weather
         }
     }
     
     class WeatherIconRepositoryStub: WeatherIconRepository {
+        
         func fetchImage(with imagePath: String) async throws -> Data {
             return Data()
+        }
+    }
+    
+    class TodayPresenterSpy: TodayPresenting {
+        
+        @Published var presentWeatherIconCalled = false
+        
+        func presentWeatherIcon(response: Data) {
+            presentWeatherIconCalled = true
         }
     }
     
@@ -66,5 +77,24 @@ final class TodayInteractorTests: XCTestCase {
         wait(for: [promise], timeout: 1)
         ///then
         XCTAssert(weatherWorkerSpy.weatherWorkerCalled)
+    }
+    
+    func test_loadWeather_should() {
+        ///given
+        sut.presenter = todayPresenterSpy
+        
+        let promise = expectation(description: "Presenter Be Called")
+        todayPresenterSpy.$presentWeatherIconCalled
+            .sink { isCalled in
+                if isCalled {
+                    promise.fulfill()
+                }
+            }
+            .store(in: &cancellableBag)
+        ///when
+        sut.loadWeather()
+        wait(for: [promise], timeout: 1)
+        ///then
+        XCTAssert(todayPresenterSpy.presentWeatherIconCalled)
     }
 }

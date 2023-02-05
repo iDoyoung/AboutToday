@@ -39,6 +39,7 @@ final class TodayInteractor: TodayBusinessLogic, TodayDataStore {
     
     private func loadWeatherIconImage(with imagePath: String) async throws {
         let responseOfIcon = try await weatherWorker.getWeatherIcon(with: imagePath)
+        presenter?.presentWeatherIcon(response: responseOfIcon)
     }
     
     //MARK: - Output
