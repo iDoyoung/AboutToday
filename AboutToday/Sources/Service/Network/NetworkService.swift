@@ -25,11 +25,7 @@ protocol NetworkSessionDataProtocol {
 final class NetworkSessionData: NetworkSessionDataProtocol {
     
     func request(_ request: URLRequest) async throws -> (Data, URLResponse) {
-        do {
-            return try await URLSession.shared.data(for: request)
-        } catch {
-            throw error
-        }
+        return try await URLSession.shared.data(for: request)
     }
 }
 
@@ -46,12 +42,7 @@ final class NetworkService: NetworkServiceProtocol {
     func request(endpoint: Requester) async throws -> Data {
         let urlRequest = try? endpoint.requestURL(with: configuration)
         guard let urlRequest else { throw NetworkError.badURL }
-        
-        do {
-            return try await request(request: urlRequest)
-        } catch {
-            throw error
-        }
+        return try await request(request: urlRequest)
     }
     
     private func request(request: URLRequest) async throws -> Data {
