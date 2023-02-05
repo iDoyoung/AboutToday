@@ -13,14 +13,14 @@ protocol WeatherIconRepository {
 
 final class DefaultWeatherIconRepository: WeatherIconRepository {
     
-    private let service: NetworkDataCodableServiceProtocol
+    private let service: NetworkServiceProtocol
     
-    init(service: NetworkDataCodableServiceProtocol) {
+    init(service: NetworkServiceProtocol) {
         self.service = service
     }
     
     func fetchImage(with imagePath: String) async throws -> Data {
         let endpoint = APIEndpoints.getWeatherIcon(with: imagePath)
-        return try await service.request(with: endpoint)
+        return try await service.request(endpoint: endpoint)
     }
 }

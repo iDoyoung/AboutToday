@@ -10,15 +10,14 @@ import Foundation
 final class SceneDIContainer {
     
     private func makeWeatherService() -> NetworkDataCodableService {
-        let configuration = NetworkAPIConfiguration(baseURL: getOpenWeatherBaseURL(), queryParameters: [ConfidentialKey.openWeatherAPI.key: ConfidentialKey.openWeatherAPI.value])
+        let configuration = NetworkAPIConfiguration(baseURL: getOpenWeatherBaseURL(isAPI: true), queryParameters: [ConfidentialKey.openWeatherAPI.key: ConfidentialKey.openWeatherAPI.value])
         let service = NetworkService(configuration: configuration)
         return NetworkDataCodableService(network: service)
     }
     
-    private func makeWeatherIconImageService() -> NetworkDataCodableService {
-        let configuration = NetworkAPIConfiguration(baseURL: getOpenWeatherBaseURL())
-        let service = NetworkService(configuration: configuration)
-        return NetworkDataCodableService(network: service)
+    private func makeWeatherIconImageService() -> NetworkService {
+        let configuration = NetworkAPIConfiguration(baseURL: getOpenWeatherBaseURL(isAPI: false))
+        return NetworkService(configuration: configuration)
     }
     
     private func makeWeatherWorker() -> WeatherWorker {
@@ -64,12 +63,15 @@ extension SceneDIContainer {
         }
     }
     
-    private func getOpenWeatherBaseURL() -> URL {
+    private func getOpenWeatherBaseURL(isAPI: Bool) -> URL {
         guard let provided = Bundle.main.object(forInfoDictionaryKey: "Weather_api_base_url") as? String else {
             fatalError("Weather_api_base_url must not be empty")
         }
-        let url = URL(string: provided)!
-        return url
+        if isAPI {
+            return URL(string: "api." + provided)!
+        } else {
+            return URL(string: provided)!
+        }
     }
 }
 
