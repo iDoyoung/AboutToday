@@ -17,7 +17,7 @@ final class TodayPresenter: TodayPresenting {
     
     func presentWeatherIcon(response: Data) {
         DispatchQueue.main.async { [weak self] in
-            guard let image = UIImage(data: response) else { return }
+            guard let image = UIImage(data: response)?.withRenderingMode(.alwaysOriginal) else { return }
             self?.viewController?.displayNavigationBarLeftItem(weather: image)
         }
     }
