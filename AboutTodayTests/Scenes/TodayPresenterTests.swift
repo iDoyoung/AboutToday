@@ -6,12 +6,14 @@
 //
 
 import XCTest
+import Combine
 @testable import AboutToday
 
 final class TodayPresenterTests: XCTestCase {
 
     //MARK: System Under Test
     var sut: TodayPresenter!
+    private var cancellableBag = Set<AnyCancellable>()
     
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -28,7 +30,7 @@ final class TodayPresenterTests: XCTestCase {
     var todayDidplayLogicSpy = TodayDidplayLogicSpy()
     class TodayDidplayLogicSpy: TodayDisplayLogic {
        
-        var displayWeatherCalled = false
+        @Published var displayWeatherCalled = false
         
         func displayWeather(viewModel: AboutToday.TodayWeather.Fetched.ViewModel) {
             displayWeatherCalled = true
@@ -36,11 +38,20 @@ final class TodayPresenterTests: XCTestCase {
     }
     
     //MARK: Tests
-    func test_presentWeatherIcon_whenReceiveValid() {
+    func test_presentWeather_whenReceiveResponse() {
         ///given
+        let promise = expectation(description: "Display Logic Be Called")
+        todayDidplayLogicSpy.$displayWeatherCalled
+            .sink { isCalled in
+                if isCalled {
+                    promise.fulfill()
+                }
+            }
+            .store(in: &cancellableBag)
         let response = Seeds.Dummy.todayWeatherResponse
         ///when
         sut.presentWeather(response: response)
+        wait(for: [promise], timeout: 1)
         ///then
         XCTAssert(todayDidplayLogicSpy.displayWeatherCalled)
     }
