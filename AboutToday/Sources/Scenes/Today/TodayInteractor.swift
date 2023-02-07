@@ -28,18 +28,19 @@ final class TodayInteractor: TodayBusinessLogic, TodayDataStore {
         Task {
             do {
                 weather = try await weatherWorker.getWeather(latitude: "40.78", longitude: "73.97")
-                let response = TodayWeather.Fetched.Response(weather: weather?.weather ?? [])
-                guard let imagePath = response.weather.first?.icon else { return }
-                try await loadWeatherIconImage(with: imagePath)
+                guard let weather else { return }
+                guard let imagePath = weather.weather.first?.icon else { return }
+                let imageData = try await weatherWorker.getWeatherIcon(with: imagePath)
+                let reponse = TodayWeather.Fetched.Response(city: weather.city,
+                                                            temp: weather.main.temp,
+                                                            minTemp: weather.main.minTemp,
+                                                            maxTemp: weather.main.maxTemp,
+                                                            imageData: imageData)
+                presenter?.presentWeather(response: reponse)
             } catch let error {
                 print(error)
             }
         }
-    }
-    
-    private func loadWeatherIconImage(with imagePath: String) async throws {
-        let responseOfIcon = try await weatherWorker.getWeatherIcon(with: imagePath)
-        presenter?.presentWeatherIcon(response: responseOfIcon)
     }
     
     //MARK: - Output
