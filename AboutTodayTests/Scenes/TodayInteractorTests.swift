@@ -55,10 +55,10 @@ final class TodayInteractorTests: XCTestCase {
     
     class TodayPresenterSpy: TodayPresenting {
         
-        @Published var presentWeatherIconCalled = false
+        @Published var presentWeatherCalled = false
         
-        func presentWeatherIcon(response: Data) {
-            presentWeatherIconCalled = true
+        func presentWeather(response: AboutToday.TodayWeather.Fetched.Response) {
+            presentWeatherCalled = true
         }
     }
     
@@ -84,7 +84,7 @@ final class TodayInteractorTests: XCTestCase {
         sut.presenter = todayPresenterSpy
         
         let promise = expectation(description: "Presenter Be Called")
-        todayPresenterSpy.$presentWeatherIconCalled
+        todayPresenterSpy.$presentWeatherCalled
             .sink { isCalled in
                 if isCalled {
                     promise.fulfill()
@@ -95,6 +95,6 @@ final class TodayInteractorTests: XCTestCase {
         sut.loadWeather()
         wait(for: [promise], timeout: 1)
         ///then
-        XCTAssert(todayPresenterSpy.presentWeatherIconCalled)
+        XCTAssert(todayPresenterSpy.presentWeatherCalled)
     }
 }
