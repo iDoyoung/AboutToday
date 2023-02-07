@@ -16,5 +16,10 @@ enum Seeds {
                                      weather: [Weather.Weather(description: "", icon: "")],
                                      wind: .init(speed: 0),
                                      coordinate: .init(longitude: 100, latitude: 100))
+        static let todayWeatherResponse = TodayWeather.Fetched.Response(city: "",
+                                                                        temp: 0,
+                                                                        minTemp: 0,
+                                                                        maxTemp: 0,
+                                                                        imageData: UIImage(systemName: "trash")!.pngData()!)
     }
 }
