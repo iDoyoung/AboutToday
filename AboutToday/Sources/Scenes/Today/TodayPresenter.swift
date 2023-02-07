@@ -8,17 +8,15 @@
 import UIKit
 
 protocol TodayPresenting {
-    func presentWeatherIcon(response: Data)
+    func presentWeather(response: TodayWeather.Fetched.Response)
 }
 
 final class TodayPresenter: TodayPresenting {
     
     weak var viewController: TodayDisplayLogic?
     
-    func presentWeatherIcon(response: Data) {
+    func presentWeather(response: TodayWeather.Fetched.Response) {
         DispatchQueue.main.async { [weak self] in
-            guard let image = UIImage(data: response)?.withRenderingMode(.alwaysOriginal) else { return }
-            self?.viewController?.displayNavigationBarLeftItem(weather: image)
         }
     }
 }
