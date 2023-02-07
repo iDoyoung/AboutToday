@@ -12,10 +12,18 @@ enum TodayWeather {
     enum Fetched {
         
         struct Response {
-            let weather: [Weather.Weather]
+            let city: String
+            let temp: Double
+            let minTemp: Double
+            let maxTemp: Double
+            let imageData: Data
         }
         
         struct ViewModel {
+            let city: String
+            let currentTemperature: String
+            let minTemperature: String
+            let maxTemperature: String
             let image: UIImage
         }
     }
