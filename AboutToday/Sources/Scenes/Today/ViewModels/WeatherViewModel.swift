@@ -24,7 +24,7 @@ enum TodayWeather {
             let currentTemperature: String
             let minTemperature: String
             let maxTemperature: String
-            let image: UIImage
+            let image: UIImage?
         }
     }
 }
