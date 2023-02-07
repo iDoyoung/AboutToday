@@ -27,21 +27,21 @@ final class TodayPresenterTests: XCTestCase {
     //MARK: Test doubles
     var todayDidplayLogicSpy = TodayDidplayLogicSpy()
     class TodayDidplayLogicSpy: TodayDisplayLogic {
-        var displayNavigationBarLeftItemCalled = false
+       
+        var displayWeatherCalled = false
         
-        func displayNavigationBarLeftItem(weather image: UIImage) {
-            displayNavigationBarLeftItemCalled = true
+        func displayWeather(viewModel: AboutToday.TodayWeather.Fetched.ViewModel) {
+            displayWeatherCalled = true
         }
     }
     
     //MARK: Tests
     func test_presentWeatherIcon_whenReceiveValid() {
         ///given
-        let dummyImage = UIImage(systemName: "trash")!
-        let data = dummyImage.pngData()!
+        let response = Seeds.Dummy.todayWeatherResponse
         ///when
-        sut.presentWeatherIcon(response: data)
+        sut.presentWeather(response: response)
         ///then
-        XCTAssert(todayDidplayLogicSpy.displayNavigationBarLeftItemCalled)
+        XCTAssert(todayDidplayLogicSpy.displayWeatherCalled)
     }
 }
