@@ -24,9 +24,6 @@
 		7FAD0FF6298CE8E1009E452E /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD0FF5298CE8E1009E452E /* WeatherViewModel.swift */; };
 		7FAD0FF8298E356C009E452E /* WeatherIconRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD0FF7298E356C009E452E /* WeatherIconRepository.swift */; };
 		7FAD0FFA298F2F2D009E452E /* TodayPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD0FF9298F2F2D009E452E /* TodayPresenterTests.swift */; };
-		7FAD100029922A54009E452E /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 7FAD0FFF29922A54009E452E /* FlexLayout */; };
-		7FAD100229922A54009E452E /* FlexLayoutYoga in Frameworks */ = {isa = PBXBuildFile; productRef = 7FAD100129922A54009E452E /* FlexLayoutYoga */; };
-		7FAD100429922A54009E452E /* FlexLayoutYogaKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7FAD100329922A54009E452E /* FlexLayoutYogaKit */; };
 		7FC08AF32989E6450019538E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF22989E6450019538E /* Weather.swift */; };
 		7FC08AF52989EAC70019538E /* NetworkDataCodableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */; };
 		7FC08AF7298A17880019538E /* NetworkCodableServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */; };
@@ -102,9 +99,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FAD100029922A54009E452E /* FlexLayout in Frameworks */,
-				7FAD100229922A54009E452E /* FlexLayoutYoga in Frameworks */,
-				7FAD100429922A54009E452E /* FlexLayoutYogaKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,9 +313,6 @@
 			);
 			name = AboutToday;
 			packageProductDependencies = (
-				7FAD0FFF29922A54009E452E /* FlexLayout */,
-				7FAD100129922A54009E452E /* FlexLayoutYoga */,
-				7FAD100329922A54009E452E /* FlexLayoutYogaKit */,
 			);
 			productName = AboutToday;
 			productReference = 7F11B61D298890AF001F879F /* AboutToday.app */;
@@ -396,7 +387,6 @@
 			);
 			mainGroup = 7F11B614298890AF001F879F;
 			packageReferences = (
-				7FAD0FFE29922A54009E452E /* XCRemoteSwiftPackageReference "FlexLayout" */,
 			);
 			productRefGroup = 7F11B61E298890AF001F879F /* Products */;
 			projectDirPath = "";
@@ -804,35 +794,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		7FAD0FFE29922A54009E452E /* XCRemoteSwiftPackageReference "FlexLayout" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/layoutBox/FlexLayout";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		7FAD0FFF29922A54009E452E /* FlexLayout */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7FAD0FFE29922A54009E452E /* XCRemoteSwiftPackageReference "FlexLayout" */;
-			productName = FlexLayout;
-		};
-		7FAD100129922A54009E452E /* FlexLayoutYoga */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7FAD0FFE29922A54009E452E /* XCRemoteSwiftPackageReference "FlexLayout" */;
-			productName = FlexLayoutYoga;
-		};
-		7FAD100329922A54009E452E /* FlexLayoutYogaKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7FAD0FFE29922A54009E452E /* XCRemoteSwiftPackageReference "FlexLayout" */;
-			productName = FlexLayoutYogaKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7F11B615298890AF001F879F /* Project object */;
 }
