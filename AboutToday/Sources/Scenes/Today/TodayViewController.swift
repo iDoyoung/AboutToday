@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TodayDisplayLogic: AnyObject {
-    func displayNavigationBarLeftItem(weather image: UIImage)
+    func displayWeather(viewModel: TodayWeather.Fetched.ViewModel)
 }
 
 final class TodayViewController: ViewController, TodayDisplayLogic {
@@ -16,7 +16,7 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     var interactor: TodayBusinessLogic?
     
     lazy var navigationLeftBarButtonItem: UIBarButtonItem = {
-        let barbuttionItem = UIBarButtonItem(image: UIImage(systemName: "questionmark"), style: .plain, target: self, action: nil)
+        let barbuttionItem = UIBarButtonItem(image: nil, style: .plain, target: self, action: nil)
         barbuttionItem.accessibilityLabel = "Today weather"
         return barbuttionItem
     }()
@@ -29,6 +29,10 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         interactor?.loadWeather()
     }
     
@@ -36,7 +40,14 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
         navigationItem.leftBarButtonItem = navigationLeftBarButtonItem
     }
     
-    func displayNavigationBarLeftItem(weather image: UIImage) {
+    //MARK: - Display Logic
+    func displayWeather(viewModel: TodayWeather.Fetched.ViewModel) {
+        assert(Thread.isMainThread, "Thread is not main")
+        setLeftBarButtonItemImage(viewModel.image)
+    }
+    
+    private func setLeftBarButtonItemImage(_ image: UIImage?) {
+        assert(image != nil, "Image is nil")
         navigationLeftBarButtonItem.image = image
     }
 }
