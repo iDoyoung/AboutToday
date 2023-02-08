@@ -16,49 +16,16 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     var interactor: TodayBusinessLogic?
     
     //MARK: UI Properties
+    var contentView = TodayView()
+    
     private lazy var navigationLeftBarButtonItem: UIBarButtonItem = {
         let barButtionItem = UIBarButtonItem(image: nil, style: .plain, target: self, action: nil)
         barButtionItem.accessibilityLabel = "Today weather"
         return barButtionItem
     }()
     
-    private let weatherView: UIView = {
-        let view = UIView()
-        return view
-    }()
-    
-    private let locationView: UIView = {
-        let view = UIView()
-        return view
-    }()
-    
-    private let cityLabel: UILabel = {
-        let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .body)
-        return label
-    }()
-    
-    private let currentTempLabel: UILabel = {
-        let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .largeTitle)
-        return label
-    }()
-    
-    private let maxTempLabel: UILabel = {
-        let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .caption2)
-        return label
-    }()
-    
-    private let minTempLabel: UILabel = {
-        let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .caption2)
-        return label
-    }()
-    
     override func loadView() {
-        view = UIView()
-        view.backgroundColor = .systemBackground
+        view = contentView
     }
     
     override func viewDidLoad() {
@@ -83,6 +50,7 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
         setCurrentTempLabel(text: viewModel.currentTemperature)
         setMaxTempLabel(text: viewModel.maxTemperature)
         setMinTempLabel(text: viewModel.minTemperature)
+        contentView.todayWeatherView.setNeedsLayout()
     }
     
     private func setLeftBarButtonItemImage(_ image: UIImage?) {
@@ -91,19 +59,19 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     }
     
     private func setCityLabel(text: String) {
-        cityLabel.text = text
+        contentView.todayWeatherView.cityLabel.text = text
     }
     
     private func setCurrentTempLabel(text: String) {
-        currentTempLabel.text = text
+        contentView.todayWeatherView.currentTempLabel.text = text
     }
     
     private func setMaxTempLabel(text: String) {
-        maxTempLabel.text = text
+        contentView.todayWeatherView.maxTempLabel.text = text
     }
     
     private func setMinTempLabel(text: String) {
-        minTempLabel.text = text
+        contentView.todayWeatherView.minTempLabel.text = text
     }
     
 }
