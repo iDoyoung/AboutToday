@@ -28,6 +28,7 @@
 		7FAD101229923CF3009E452E /* FlexLayoutYoga in Frameworks */ = {isa = PBXBuildFile; productRef = 7FAD101129923CF3009E452E /* FlexLayoutYoga */; };
 		7FAD101429923CF3009E452E /* FlexLayoutYogaKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7FAD101329923CF3009E452E /* FlexLayoutYogaKit */; };
 		7FAD1075299264CB009E452E /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 7FAD1074299264CB009E452E /* PinLayout */; };
+		7FAD107B299277E2009E452E /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD107A299277E2009E452E /* TodayView.swift */; };
 		7FC08AF32989E6450019538E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF22989E6450019538E /* Weather.swift */; };
 		7FC08AF52989EAC70019538E /* NetworkDataCodableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */; };
 		7FC08AF7298A17880019538E /* NetworkCodableServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */; };
@@ -82,6 +83,7 @@
 		7FAD0FF5298CE8E1009E452E /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		7FAD0FF7298E356C009E452E /* WeatherIconRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconRepository.swift; sourceTree = "<group>"; };
 		7FAD0FF9298F2F2D009E452E /* TodayPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPresenterTests.swift; sourceTree = "<group>"; };
+		7FAD107A299277E2009E452E /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		7FC08AF22989E6450019538E /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataCodableService.swift; sourceTree = "<group>"; };
 		7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCodableServiceTests.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				7FC08B0B298B46500019538E /* TodayInteractor.swift */,
 				7FC08B0D298B46600019538E /* TodayPresenter.swift */,
 				7FC08B0F298B46710019538E /* TodayRouter.swift */,
+				7FAD107A299277E2009E452E /* TodayView.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				7F11B623298890AF001F879F /* SceneDelegate.swift in Sources */,
 				7F11B6652988B8C7001F879F /* NetworkService.swift in Sources */,
 				7FAD0FF3298CCDA6009E452E /* SceneDIContainer.swift in Sources */,
+				7FAD107B299277E2009E452E /* TodayView.swift in Sources */,
 				7FC08B0A298B456D0019538E /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
