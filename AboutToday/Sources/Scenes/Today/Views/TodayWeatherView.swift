@@ -6,12 +6,9 @@
 //
 
 import UIKit
-import FlexLayout
 import PinLayout
 
 final class TodayWeatherView: UIView {
-    
-    private let rootFlexContainer = UIView()
     
     let cityLabel: UILabel = {
         let label = UILabel()
@@ -43,40 +40,35 @@ final class TodayWeatherView: UIView {
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = .setGradientEffect(colors: [.systemBackground, .systemGray],
-                                          frame: bounds,
-                                          startPoint: CGPoint(x: 0, y: 0),
-                                          endPoint: CGPoint(x: 1, y: 1))
-        borderColor = .secondarySystemBackground
-        borderWidth = 1
-        cornerRadius = 16
-        
-        addSubview(rootFlexContainer)
-        rootFlexContainer.flex
-            .direction(.column)
-            .padding(16)
-            .define { flex in
-                flex.addItem(cityLabel).grow(1)
-                flex.addItem(currentTempLabel).grow(2)
-                flex.addItem()
-                    .direction(.row)
-                    .define { flex in
-                        flex.grow(1)
-                        flex.addItem(maxTempLabel).grow(1)
-                        flex.addItem(minTempLabel).grow(1)
-                        flex.addItem().width(1).grow(1)
-                    }
-            }
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        rootFlexContainer.pin.all()
-        rootFlexContainer.flex.layout()
+        addSubview(cityLabel)
+        addSubview(currentTempLabel)
+        addSubview(maxTempLabel)
+        addSubview(minTempLabel)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        cityLabel.pin
+            .top()
+            .left()
+            .right()
+            .sizeToFit(.width)
+        currentTempLabel.pin
+            .below(of: cityLabel, aligned: .start)
+            .right()
+            .sizeToFit(.width)
+        maxTempLabel.pin
+            .bottom()
+            .left()
+            .sizeToFit()
+        minTempLabel.pin
+            .after(of: maxTempLabel, aligned: .bottom)
+            .right()
+            .sizeToFit()
     }
 }
 
