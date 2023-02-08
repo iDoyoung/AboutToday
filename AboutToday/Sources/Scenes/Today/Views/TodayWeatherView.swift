@@ -27,31 +27,33 @@ final class TodayWeatherView: UIView {
     
     let maxTempLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .caption2)
+        label.font = .preferredFont(forTextStyle: .caption1)
         return label
     }()
     
     let minTempLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .caption2)
+        label.font = .preferredFont(forTextStyle: .caption1)
         return label
     }()
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = .systemBackground
         
         addSubview(rootFlexContainer)
         rootFlexContainer.flex
             .direction(.column)
+            .justifyContent(.center)
+            .padding(16)
             .define { flex in
                 flex.addItem(cityLabel)
                 flex.addItem(currentTempLabel)
                 flex.addItem()
+                    .marginTop(20)
                     .direction(.row)
                     .define { flex in
-                        flex.addItem(maxTempLabel).grow(1)
-                        flex.addItem(minTempLabel).grow(1)
+                        flex.addItem(maxTempLabel)
+                        flex.addItem(minTempLabel)
                     }
             }
     }
