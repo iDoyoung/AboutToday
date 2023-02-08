@@ -31,6 +31,7 @@
 		7FAD107B299277E2009E452E /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD107A299277E2009E452E /* TodayView.swift */; };
 		7FAD107E29932A30009E452E /* TodayWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD107D29932A30009E452E /* TodayWeatherView.swift */; };
 		7FAD108029933A76009E452E /* UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD107F29933A76009E452E /* UIViewPreview.swift */; };
+		7FAD10BA299356F6009E452E /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD10B9299356F6009E452E /* UIView+Border.swift */; };
 		7FC08AF32989E6450019538E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF22989E6450019538E /* Weather.swift */; };
 		7FC08AF52989EAC70019538E /* NetworkDataCodableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */; };
 		7FC08AF7298A17880019538E /* NetworkCodableServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */; };
@@ -88,6 +89,7 @@
 		7FAD107A299277E2009E452E /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		7FAD107D29932A30009E452E /* TodayWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeatherView.swift; sourceTree = "<group>"; };
 		7FAD107F29933A76009E452E /* UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
+		7FAD10B9299356F6009E452E /* UIView+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
 		7FC08AF22989E6450019538E /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataCodableService.swift; sourceTree = "<group>"; };
 		7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCodableServiceTests.swift; sourceTree = "<group>"; };
@@ -198,13 +200,13 @@
 		7F11B651298890F2001F879F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				7FAD10B72993562E009E452E /* Utils */,
 				7FC08B17298B5D820019538E /* Repositories */,
 				7FC08AF12989E6360019538E /* Models */,
 				7F11B650298890DC001F879F /* Entries */,
 				7F11B658298897A1001F879F /* Service */,
 				7FC08AFA298A554F0019538E /* Workers */,
 				7F11B65429889173001F879F /* Scenes */,
+				7FAD10B72993562E009E452E /* Utils */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -276,9 +278,18 @@
 		7FAD10B72993562E009E452E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7FAD10B8299356DF009E452E /* Extensions */,
 				7FAD107F29933A76009E452E /* UIViewPreview.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		7FAD10B8299356DF009E452E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7FAD10B9299356F6009E452E /* UIView+Border.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		7FC08AF12989E6360019538E /* Models */ = {
@@ -473,6 +484,7 @@
 				7FAD0FF6298CE8E1009E452E /* WeatherViewModel.swift in Sources */,
 				7FAD107E29932A30009E452E /* TodayWeatherView.swift in Sources */,
 				7FC08AF32989E6450019538E /* Weather.swift in Sources */,
+				7FAD10BA299356F6009E452E /* UIView+Border.swift in Sources */,
 				7FAD0FF8298E356C009E452E /* WeatherIconRepository.swift in Sources */,
 				7FAD108029933A76009E452E /* UIViewPreview.swift in Sources */,
 				7FC08B19298B5E680019538E /* WeatherRepository.swift in Sources */,
