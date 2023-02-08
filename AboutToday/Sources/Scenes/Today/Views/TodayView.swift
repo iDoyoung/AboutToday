@@ -17,19 +17,34 @@ final class TodayView: UIView {
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = .systemBackground
+        backgroundColor = .secondarySystemBackground
         
         addSubview(rootFlexContainer)
         rootFlexContainer.flex
+            .padding(20)
             .direction(.column)
-            .padding(0)
             .define { flex in
-                ///First Row Containter
+                ///First Row
                 flex.addItem()
+                    .height(30%)
                     .direction(.row)
                     .define { flex in
-                        flex.addItem(todayWeatherView)
+                        ///Setup Today Weather
+                        flex.addItem().width(50%).define { flex in
+                            flex.backgroundColor(.systemBackground)
+                            flex.view?.cornerRadius = 16
+                            flex.padding(20)
+                            flex.addItem(todayWeatherView).width(100%).height(100%)
+                        }
+                        //TODO: - Setup Current Location View
+                        flex.addItem().width(50%).define { flex in
+                            flex.padding(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0))
+                        }
                     }
+                //TODO: - Set Second row
+                flex.addItem()
+                    .backgroundColor(.systemBackground)
+                    .height(50%)
             }
     }
     
