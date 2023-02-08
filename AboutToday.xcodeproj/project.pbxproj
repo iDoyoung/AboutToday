@@ -259,6 +259,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		7FAD107C2993282A009E452E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7FAD107A299277E2009E452E /* TodayView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7FC08AF12989E6360019538E /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,12 +287,12 @@
 		7FC08B06298B45450019538E /* Today */ = {
 			isa = PBXGroup;
 			children = (
+				7FAD107C2993282A009E452E /* Views */,
 				7FAD0FF4298CE8CE009E452E /* ViewModels */,
 				7FC08B09298B456D0019538E /* TodayViewController.swift */,
 				7FC08B0B298B46500019538E /* TodayInteractor.swift */,
 				7FC08B0D298B46600019538E /* TodayPresenter.swift */,
 				7FC08B0F298B46710019538E /* TodayRouter.swift */,
-				7FAD107A299277E2009E452E /* TodayView.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
