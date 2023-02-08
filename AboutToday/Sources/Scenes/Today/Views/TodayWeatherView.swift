@@ -11,7 +11,7 @@ import PinLayout
 
 final class TodayWeatherView: UIView {
     
-    let rootFlexContainer = UIView()
+    private let rootFlexContainer = UIView()
     
     let cityLabel: UILabel = {
         let label = UILabel()
@@ -66,3 +66,21 @@ final class TodayWeatherView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+struct TodayWeatherViewPreview: PreviewProvider {
+    
+    static var previews: some View {
+        UIViewPreview {
+            let view = TodayWeatherView()
+            view.cityLabel.text = "New York"
+            view.currentTempLabel.text = "10º"
+            view.maxTempLabel.text = "12º"
+            view.minTempLabel.text = "0º"
+            return view
+        }
+    }
+}
+#endif
