@@ -198,6 +198,7 @@
 		7F11B651298890F2001F879F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				7FAD10B72993562E009E452E /* Utils */,
 				7FC08B17298B5D820019538E /* Repositories */,
 				7FC08AF12989E6360019538E /* Models */,
 				7F11B650298890DC001F879F /* Entries */,
@@ -214,7 +215,6 @@
 				7F11B62E298890B0001F879F /* Info.plist */,
 				7F11B62B298890B0001F879F /* LaunchScreen.storyboard */,
 				7FC08AFD298A56840019538E /* ConfidentialKey.xcconfig */,
-				7FAD107F29933A76009E452E /* UIViewPreview.swift */,
 			);
 			path = Supportings;
 			sourceTree = "<group>";
@@ -271,6 +271,14 @@
 				7FAD107D29932A30009E452E /* TodayWeatherView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7FAD10B72993562E009E452E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7FAD107F29933A76009E452E /* UIViewPreview.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		7FC08AF12989E6360019538E /* Models */ = {
