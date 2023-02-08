@@ -15,24 +15,28 @@ final class TodayWeatherView: UIView {
     
     let cityLabel: UILabel = {
         let label = UILabel()
+        label.text = "--"
         label.font = .preferredFont(forTextStyle: .body)
         return label
     }()
     
     let currentTempLabel: UILabel = {
         let label = UILabel()
+        label.text = "-º"
         label.font = .preferredFont(forTextStyle: .largeTitle)
         return label
     }()
     
     let maxTempLabel: UILabel = {
         let label = UILabel()
+        label.text = "-º"
         label.font = .preferredFont(forTextStyle: .caption1)
         return label
     }()
     
     let minTempLabel: UILabel = {
         let label = UILabel()
+        label.text = "-º"
         label.font = .preferredFont(forTextStyle: .caption1)
         return label
     }()
@@ -50,24 +54,24 @@ final class TodayWeatherView: UIView {
         addSubview(rootFlexContainer)
         rootFlexContainer.flex
             .direction(.column)
-            .justifyContent(.center)
             .padding(16)
             .define { flex in
-                flex.addItem(cityLabel)
-                flex.addItem(currentTempLabel)
+                flex.addItem(cityLabel).grow(1)
+                flex.addItem(currentTempLabel).grow(2)
                 flex.addItem()
-                    .marginTop(20)
                     .direction(.row)
                     .define { flex in
-                        flex.addItem(maxTempLabel)
-                        flex.addItem(minTempLabel)
+                        flex.grow(1)
+                        flex.addItem(maxTempLabel).grow(1)
+                        flex.addItem(minTempLabel).grow(1)
+                        flex.addItem().width(1).grow(1)
                     }
             }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        rootFlexContainer.pin.all(self.pin.safeArea)
+        rootFlexContainer.pin.all()
         rootFlexContainer.flex.layout()
     }
     
