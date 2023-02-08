@@ -39,6 +39,13 @@ final class TodayWeatherView: UIView {
     
     init() {
         super.init(frame: .zero)
+        backgroundColor = .setGradientEffect(colors: [.systemBackground, .systemGray],
+                                          frame: bounds,
+                                          startPoint: CGPoint(x: 0, y: 0),
+                                          endPoint: CGPoint(x: 1, y: 1))
+        borderColor = .secondarySystemBackground
+        borderWidth = 1
+        cornerRadius = 16
         
         addSubview(rootFlexContainer)
         rootFlexContainer.flex
