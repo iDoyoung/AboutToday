@@ -11,7 +11,9 @@ import PinLayout
 
 final class TodayView: UIView {
     
-    let rootFlexContainer = UIView()
+    private let rootFlexContainer = UIView()
+
+    let todayWeatherView = TodayWeatherView()
     
     init() {
         super.init(frame: .zero)
@@ -26,7 +28,7 @@ final class TodayView: UIView {
                 flex.addItem()
                     .direction(.row)
                     .define { flex in
-                        //TODO: Add Weather View
+                        flex.addItem(todayWeatherView)
                     }
             }
     }
@@ -41,3 +43,20 @@ final class TodayView: UIView {
         rootFlexContainer.flex.layout()
     }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+struct TodayPreview: PreviewProvider {
+    
+    static var previews: some View {
+        UIViewPreview {
+            let view = TodayView()
+            view.todayWeatherView.cityLabel.text = "New york city"
+            view.todayWeatherView.currentTempLabel.text = "10º"
+            view.todayWeatherView.maxTempLabel.text = "12º"
+            view.todayWeatherView.minTempLabel.text = "0º"
+            return view
+        }
+    }
+}
+#endif
