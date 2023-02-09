@@ -5,7 +5,8 @@
 //  Created by Doyoung on 2023/02/02.
 //
 
-import UIKit
+import Foundation
+import CoreLocation
 
 protocol TodayBusinessLogic {
     func loadWeather()
@@ -15,19 +16,23 @@ protocol TodayDataStore {
     var weather: Weather? { get }
 }
 
-final class TodayInteractor: TodayBusinessLogic, TodayDataStore {
+final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
     
     private var weatherWorker: WeatherWorker
+    private var coreLocationManager = CLLocationManager()
+    
     var presenter: TodayPresenting?
     
     init(weatherWorker: WeatherWorker) {
         self.weatherWorker = weatherWorker
     }
     
+    //TODO: Rqeust Location
+    
     func loadWeather() {
         Task {
             do {
-                weather = try await weatherWorker.getWeather(latitude: "40.78", longitude: "73.97")
+                weather = try await weatherWorker.getWeather(latitude: "37.244500226941", longitude: "127.05758053117")
                 guard let weather else { return }
                 guard let imagePath = weather.weather.first?.icon else { return }
                 let imageData = try await weatherWorker.getWeatherIcon(with: imagePath)
@@ -43,6 +48,20 @@ final class TodayInteractor: TodayBusinessLogic, TodayDataStore {
         }
     }
     
+    
     //MARK: - Output
     var weather: Weather?
+}
+
+extension TodayInteractor: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            //TODO: Reponse To rquest location and call Presenter
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
+        //TODO: Reponse To rquest location and call Presenter
+    }
 }
