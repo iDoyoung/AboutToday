@@ -34,6 +34,9 @@
 		7FAD10BA299356F6009E452E /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD10B9299356F6009E452E /* UIView+Border.swift */; };
 		7FAD10BC29935B26009E452E /* UIVIew+Corner Radius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD10BB29935B26009E452E /* UIVIew+Corner Radius.swift */; };
 		7FAD10BE29935EC9009E452E /* UIColor+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD10BD29935EC9009E452E /* UIColor+Gradient.swift */; };
+		7FB0C57D2994C3ED0050E377 /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 7FB0C57C2994C3ED0050E377 /* FlexLayout */; };
+		7FB0C57F2994C3ED0050E377 /* FlexLayoutYoga in Frameworks */ = {isa = PBXBuildFile; productRef = 7FB0C57E2994C3ED0050E377 /* FlexLayoutYoga */; };
+		7FB0C5812994C3ED0050E377 /* FlexLayoutYogaKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7FB0C5802994C3ED0050E377 /* FlexLayoutYogaKit */; };
 		7FC08AF32989E6450019538E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF22989E6450019538E /* Weather.swift */; };
 		7FC08AF52989EAC70019538E /* NetworkDataCodableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */; };
 		7FC08AF7298A17880019538E /* NetworkCodableServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08AF6298A17880019538E /* NetworkCodableServiceTests.swift */; };
@@ -47,6 +50,7 @@
 		7FC08B1B298B806D0019538E /* WeatherWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08B1A298B806D0019538E /* WeatherWorkerTests.swift */; };
 		7FC08B1D298B82510019538E /* Seeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08B1C298B82510019538E /* Seeds.swift */; };
 		7FC08B20298B9EFD0019538E /* TodayInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC08B1F298B9EFD0019538E /* TodayInteractorTests.swift */; };
+		7FE7016E2994B79000A4B559 /* TodayViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7016D2994B79000A4B559 /* TodayViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +112,7 @@
 		7FC08B1A298B806D0019538E /* WeatherWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherWorkerTests.swift; sourceTree = "<group>"; };
 		7FC08B1C298B82510019538E /* Seeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seeds.swift; sourceTree = "<group>"; };
 		7FC08B1F298B9EFD0019538E /* TodayInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInteractorTests.swift; sourceTree = "<group>"; };
+		7FE7016D2994B79000A4B559 /* TodayViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +131,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FB0C57D2994C3ED0050E377 /* FlexLayout in Frameworks */,
+				7FB0C57F2994C3ED0050E377 /* FlexLayoutYoga in Frameworks */,
+				7FB0C5812994C3ED0050E377 /* FlexLayoutYogaKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +154,7 @@
 				7F11B636298890B0001F879F /* AboutTodayTests */,
 				7F11B640298890B0001F879F /* AboutTodayUITests */,
 				7F11B61E298890AF001F879F /* Products */,
+				7FB0C57B2994C3ED0050E377 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -298,6 +307,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		7FB0C57B2994C3ED0050E377 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7FC08AF12989E6360019538E /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +358,7 @@
 			children = (
 				7FC08B1F298B9EFD0019538E /* TodayInteractorTests.swift */,
 				7FAD0FF9298F2F2D009E452E /* TodayPresenterTests.swift */,
+				7FE7016D2994B79000A4B559 /* TodayViewControllerTests.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -386,6 +403,11 @@
 				7F11B635298890B0001F879F /* PBXTargetDependency */,
 			);
 			name = AboutTodayTests;
+			packageProductDependencies = (
+				7FB0C57C2994C3ED0050E377 /* FlexLayout */,
+				7FB0C57E2994C3ED0050E377 /* FlexLayoutYoga */,
+				7FB0C5802994C3ED0050E377 /* FlexLayoutYogaKit */,
+			);
 			productName = AboutTodayTests;
 			productReference = 7F11B633298890B0001F879F /* AboutTodayTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -522,6 +544,7 @@
 				7FC08AF7298A17880019538E /* NetworkCodableServiceTests.swift in Sources */,
 				7FAD0FFA298F2F2D009E452E /* TodayPresenterTests.swift in Sources */,
 				7F11B6672988D3C3001F879F /* NetworkServiceTests.swift in Sources */,
+				7FE7016E2994B79000A4B559 /* TodayViewControllerTests.swift in Sources */,
 				7F11B638298890B0001F879F /* AboutTodayTests.swift in Sources */,
 				7FC08B20298B9EFD0019538E /* TodayInteractorTests.swift in Sources */,
 				7FC08B1D298B82510019538E /* Seeds.swift in Sources */,
@@ -691,6 +714,7 @@
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "FLEXLAYOUT_SWIFT_PACKAGE=1";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AboutToday/Supportings/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -722,6 +746,7 @@
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "FLEXLAYOUT_SWIFT_PACKAGE=1";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AboutToday/Supportings/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -750,6 +775,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XVAQ6DRC4;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "FLEXLAYOUT_SWIFT_PACKAGE=1";
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
@@ -770,6 +796,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3XVAQ6DRC4;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "FLEXLAYOUT_SWIFT_PACKAGE=1";
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
@@ -898,6 +925,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7FAD1073299264CB009E452E /* XCRemoteSwiftPackageReference "PinLayout" */;
 			productName = PinLayout;
+		};
+		7FB0C57C2994C3ED0050E377 /* FlexLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FAD100E29923CF3009E452E /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayout;
+		};
+		7FB0C57E2994C3ED0050E377 /* FlexLayoutYoga */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FAD100E29923CF3009E452E /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayoutYoga;
+		};
+		7FB0C5802994C3ED0050E377 /* FlexLayoutYogaKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FAD100E29923CF3009E452E /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayoutYogaKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

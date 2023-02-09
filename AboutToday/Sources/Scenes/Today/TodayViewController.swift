@@ -31,12 +31,15 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        interactor?.startUpdatingLocation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         interactor?.loadWeather()
     }
+    
+    //TODO: Should Call Interactor to request Location
     
     private func setupNavigationBar() {
         navigationItem.leftBarButtonItem = navigationLeftBarButtonItem

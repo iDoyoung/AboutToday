@@ -10,6 +10,7 @@ import CoreLocation
 
 protocol TodayBusinessLogic {
     func loadWeather()
+    func startUpdatingLocation()
 }
 
 protocol TodayDataStore {
@@ -27,8 +28,12 @@ final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
         self.weatherWorker = weatherWorker
     }
     
-    //TODO: Rqeust Location
-    
+    //MARK: Rqeust Location
+    func startUpdatingLocation() {
+        coreLocationManager.delegate = self
+        coreLocationManager.requestWhenInUseAuthorization()
+    }
+   
     func loadWeather() {
         Task {
             do {
@@ -47,7 +52,6 @@ final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
             }
         }
     }
-    
     
     //MARK: - Output
     var weather: Weather?
