@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 import FlexLayout
 import PinLayout
 
@@ -14,6 +15,7 @@ final class TodayView: UIView {
     private let rootFlexContainer = UIView()
 
     let todayWeatherView = TodayWeatherView()
+    let mapView = MKMapView()
     
     init() {
         super.init(frame: .zero)
@@ -38,7 +40,10 @@ final class TodayView: UIView {
                         }
                         //TODO: - Setup Current Location View
                         flex.addItem().width(50%).define { flex in
-                            flex.padding(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0))
+                            flex.backgroundColor(.systemBackground)
+                            flex.view?.cornerRadius = 16
+                            flex.view?.layer.masksToBounds = true
+                            flex.addItem(mapView).width(100%).height(100%)
                         }
                     }
                 //TODO: - Set Second row
