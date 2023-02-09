@@ -9,8 +9,9 @@ import Foundation
 import CoreLocation
 
 protocol TodayBusinessLogic {
-    func loadWeather()
     func startUpdatingLocation()
+    func requestCurrentLocation()
+    func loadWeather()
 }
 
 protocol TodayDataStore {
@@ -33,11 +34,16 @@ final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
         coreLocationManager.delegate = self
         coreLocationManager.requestWhenInUseAuthorization()
     }
-   
+    
+    func requestCurrentLocation() {
+        coreLocationManager.requestLocation()
+    }
+    
     func loadWeather() {
+        guard let latitude, let longitude else { return }
         Task {
             do {
-                weather = try await weatherWorker.getWeather(latitude: "37.244500226941", longitude: "127.05758053117")
+                weather = try await weatherWorker.getWeather(latitude: latitude, longitude: longitude)
                 guard let weather else { return }
                 guard let imagePath = weather.weather.first?.icon else { return }
                 let imageData = try await weatherWorker.getWeatherIcon(with: imagePath)
@@ -55,17 +61,35 @@ final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
     
     //MARK: - Output
     var weather: Weather?
+    var currentLocation: CLLocation?
+    
+    private var latitude: String? {
+        if let currentLocation {
+            return String(currentLocation.coordinate.latitude)
+        } else {
+            return nil
+        }
+    }
+    
+    private var longitude: String? {
+        if let currentLocation {
+            return String(currentLocation.coordinate.longitude)
+        } else {
+            return nil
+        }
+    }
 }
 
 extension TodayInteractor: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             //TODO: Reponse To rquest location and call Presenter
+            currentLocation = location
+            coreLocationManager.stopUpdatingLocation()
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        
         //TODO: Reponse To rquest location and call Presenter
     }
 }
