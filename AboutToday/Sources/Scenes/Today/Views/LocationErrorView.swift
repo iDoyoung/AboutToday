@@ -43,6 +43,7 @@ final class LocationErrorView: UIView {
         rootFlexContainer.flex
             .direction(.column)
             .alignItems(.center)
+            .justifyContent(.center)
             .define { flex in
                 flex.addItem(image)
                 flex.addItem(title)
