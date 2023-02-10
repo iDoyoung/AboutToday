@@ -53,7 +53,7 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     
     //MARK: - Display Logic
     func displayCurrentLocation(region: MKCoordinateRegion) {
-        contentView.mapView.setRegion(region, animated: true)
+        contentView.mapView.setRegion(region, animated: false)
     }
     
     func displayWeather(viewModel: TodayWeather.Fetched.ViewModel) {
@@ -86,5 +86,4 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     private func setMinTempLabel(text: String) {
         contentView.todayWeatherView.minTempLabel.text = text
     }
-    
 }
