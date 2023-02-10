@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import MapKit
 
 protocol TodayDisplayLogic: AnyObject {
     func displayWeather(viewModel: TodayWeather.Fetched.ViewModel)
+    func displayCurrentLocation(region: MKCoordinateRegion)
 }
 
 final class TodayViewController: ViewController, TodayDisplayLogic {
@@ -39,6 +41,10 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
         interactor?.loadWeather()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        interactor?.requestCurrentLocation()
+    }
     //TODO: Should Call Interactor to request Location
     
     private func setupNavigationBar() {
@@ -46,6 +52,10 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     }
     
     //MARK: - Display Logic
+    func displayCurrentLocation(region: MKCoordinateRegion) {
+        contentView.mapView.setRegion(region, animated: true)
+    }
+    
     func displayWeather(viewModel: TodayWeather.Fetched.ViewModel) {
         assert(Thread.isMainThread, "Thread is not main")
         setLeftBarButtonItemImage(viewModel.image)
