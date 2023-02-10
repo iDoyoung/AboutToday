@@ -16,7 +16,7 @@ protocol TodayPresenting {
 final class TodayPresenter: TodayPresenting {
     
     weak var viewController: TodayDisplayLogic?
-    private let span = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
+    private let span = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
     
     func presentCurrentLocation(_ location: CLLocation) {
         let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
