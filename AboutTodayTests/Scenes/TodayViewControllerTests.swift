@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import MapKit
 @testable import AboutToday
 
 final class TodayViewControllerTests: XCTestCase {
@@ -55,20 +56,20 @@ final class TodayViewControllerTests: XCTestCase {
         XCTAssert(todayBusinessLogicSpy.startUpdatingLocationCalled)
     }
     
-    func test_viewWillAppear_shouldCallInteractorToLoadWeather() {
-        ///given
-        
-        ///when
-        sut.viewWillAppear(false)
-        ///then
-        XCTAssert(todayBusinessLogicSpy.loadWeatherCalled)
-    }
-    
     func test_viewDidAppear_shouldCallIneractorToReqeustCurrentLocation() {
         ///given
         ///when
         sut.viewDidAppear(false)
         ///then
         XCTAssert(todayBusinessLogicSpy.requestCurrentLocationCalled)
+    }
+    
+    func test_displayCurrentLocation_shouldCall() {
+        ///given
+        let region = MKCoordinateRegion(.init())
+        ///when
+        sut.displayCurrentLocation(region: region)
+        ///then
+        XCTAssert(todayBusinessLogicSpy.loadWeatherCalled)
     }
 }
