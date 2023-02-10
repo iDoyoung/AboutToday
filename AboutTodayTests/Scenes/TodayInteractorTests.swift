@@ -7,6 +7,7 @@
 
 import XCTest
 import Combine
+import CoreLocation
 @testable import AboutToday
 
 final class TodayInteractorTests: XCTestCase {
@@ -57,13 +58,19 @@ final class TodayInteractorTests: XCTestCase {
         
         @Published var presentWeatherCalled = false
         
+        func presentCurrentLocation(_ location: CLLocation) {
+            
+        }
+        
         func presentWeather(response: AboutToday.TodayWeather.Fetched.Response) {
             presentWeatherCalled = true
         }
     }
     
     //MARK: - Tests
-    func test_loadWeather_shouldWeatherCallWorker() {
+    func test_loadWeather_whenGiveCurrentLocation_shouldCallWeatherWorker() {
+        ///given
+        sut.currentLocation = CLLocation(latitude: 0.5, longitude: 0.5)
         let promise = expectation(description: "Worker Be Called")
         weatherWorkerSpy.$weatherWorkerCalled
             .sink { isCalled in
@@ -79,9 +86,10 @@ final class TodayInteractorTests: XCTestCase {
         XCTAssert(weatherWorkerSpy.weatherWorkerCalled)
     }
     
-    func test_loadWeather_should() {
+    func test_loadWeather_whenGiveCurrentLocation_shouldCallPresenter() {
         ///given
         sut.presenter = todayPresenterSpy
+        sut.currentLocation = CLLocation(latitude: 0.5, longitude: 0.5)
         
         let promise = expectation(description: "Presenter Be Called")
         todayPresenterSpy.$presentWeatherCalled
