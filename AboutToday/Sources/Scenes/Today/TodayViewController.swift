@@ -35,12 +35,7 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
         setupNavigationBar()
         interactor?.startUpdatingLocation()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        interactor?.loadWeather()
-    }
-    
+   
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         interactor?.requestCurrentLocation()
