@@ -81,15 +81,29 @@ final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
 }
 
 extension TodayInteractor: CLLocationManagerDelegate {
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            //TODO: Reponse To rquest location and call Presenter
             currentLocation = location
             coreLocationManager.stopUpdatingLocation()
+            presenter?.presentCurrentLocation(location)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         //TODO: Reponse To rquest location and call Presenter
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .notDetermined, .restricted, .denied:
+            break
+        case .authorizedAlways, .authorizedWhenInUse:
+            requestCurrentLocation()
+        @unknown default:
+            #if DEBUG
+            print("Unknown")
+            #endif
+        }
     }
 }
