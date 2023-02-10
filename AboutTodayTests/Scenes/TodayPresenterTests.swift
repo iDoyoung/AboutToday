@@ -7,6 +7,7 @@
 
 import XCTest
 import Combine
+import MapKit
 @testable import AboutToday
 
 final class TodayPresenterTests: XCTestCase {
@@ -29,8 +30,13 @@ final class TodayPresenterTests: XCTestCase {
     //MARK: Test doubles
     var todayDidplayLogicSpy = TodayDidplayLogicSpy()
     class TodayDidplayLogicSpy: TodayDisplayLogic {
-       
+        
+        var displayCurrentLocationCalled = false
         @Published var displayWeatherCalled = false
+        
+        func displayCurrentLocation(region: MKCoordinateRegion) {
+            displayCurrentLocationCalled = true
+        }
         
         func displayWeather(viewModel: AboutToday.TodayWeather.Fetched.ViewModel) {
             displayWeatherCalled = true
@@ -38,6 +44,15 @@ final class TodayPresenterTests: XCTestCase {
     }
     
     //MARK: Tests
+    func test_presentCurrentLocation_shouldCallViewController() {
+        ///given
+        let location = CLLocation(latitude: 0.5, longitude: 0.5)
+        ///when
+        sut.presentCurrentLocation(location)
+        ///then
+        XCTAssert(todayDidplayLogicSpy.displayCurrentLocationCalled)
+    }
+    
     func test_presentWeather_whenReceiveResponse() {
         ///given
         let promise = expectation(description: "Display Logic Be Called")

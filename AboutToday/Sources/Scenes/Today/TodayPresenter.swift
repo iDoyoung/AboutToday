@@ -6,14 +6,24 @@
 //
 
 import UIKit
+import MapKit
 
 protocol TodayPresenting {
     func presentWeather(response: TodayWeather.Fetched.Response)
+    func presentCurrentLocation(_ location: CLLocation)
 }
 
 final class TodayPresenter: TodayPresenting {
     
     weak var viewController: TodayDisplayLogic?
+    private let span = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
+    
+    func presentCurrentLocation(_ location: CLLocation) {
+        let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
+                                                longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        viewController?.displayCurrentLocation(region: region)
+    }
     
     func presentWeather(response: TodayWeather.Fetched.Response) {
         DispatchQueue.main.async {
