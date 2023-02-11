@@ -23,6 +23,7 @@ final class LocationErrorView: UIView {
     
     let title: UILabel = {
         let label = UILabel()
+        label.textAlignment = .center
         label.font = .preferredFont(forTextStyle: .headline)
         label.text = "Location Error"
         return label
@@ -31,6 +32,8 @@ final class LocationErrorView: UIView {
     let message: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.textAlignment = .center
+        label.font = .preferredFont(forTextStyle: .body)
         label.text = "Location unavailable. Enable location services in the Settings app."
         return label
     }()
