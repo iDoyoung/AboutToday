@@ -15,12 +15,7 @@ final class TodayView: UIView {
     private let rootFlexContainer = UIView()
 
     let todayWeatherView = TodayWeatherView()
-    let mapView: MKMapView = {
-        let mapView = MKMapView()
-        mapView.showsUserLocation = true
-        return mapView
-    }()
-    
+   
     let currentLocationMapView: CurrentLocationMapView = {
         let mapView = CurrentLocationMapView()
         return mapView

@@ -48,7 +48,7 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     
     //MARK: - Display Logic
     func displayCurrentLocation(region: MKCoordinateRegion) {
-        contentView.mapView.setRegion(region, animated: false)
+        contentView.currentLocationMapView.mapView.setRegion(region, animated: false)
         interactor?.loadWeather()
     }
     
