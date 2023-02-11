@@ -31,6 +31,10 @@ final class TodayPresenterTests: XCTestCase {
     var todayDidplayLogicSpy = TodayDidplayLogicSpy()
     class TodayDidplayLogicSpy: TodayDisplayLogic {
         
+        func displayLocationError() {
+        }
+        
+        
         var displayCurrentLocationCalled = false
         @Published var displayWeatherCalled = false
         

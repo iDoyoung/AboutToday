@@ -10,6 +10,7 @@ import MapKit
 
 protocol TodayDisplayLogic: AnyObject {
     func displayWeather(viewModel: TodayWeather.Fetched.ViewModel)
+    func displayLocationError()
     func displayCurrentLocation(region: MKCoordinateRegion)
 }
 
@@ -50,6 +51,10 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     func displayCurrentLocation(region: MKCoordinateRegion) {
         contentView.currentLocationMapView.mapView.setRegion(region, animated: false)
         interactor?.loadWeather()
+    }
+    
+    func displayLocationError() {
+        contentView.currentLocationMapView.toggleMapVisibility(hide: true)
     }
     
     func displayWeather(viewModel: TodayWeather.Fetched.ViewModel) {
