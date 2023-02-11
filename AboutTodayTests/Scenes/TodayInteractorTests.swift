@@ -19,6 +19,7 @@ final class TodayInteractorTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         sut = TodayInteractor(weatherWorker: weatherWorkerSpy)
+        sut.presenter = todayPresenterSpy
     }
 
     override func tearDownWithError() throws {
@@ -56,10 +57,16 @@ final class TodayInteractorTests: XCTestCase {
     
     class TodayPresenterSpy: TodayPresenting {
         
+        var presentCurrentLocationCalled = false
+        var presentLocationErrorCalled = false
         @Published var presentWeatherCalled = false
         
         func presentCurrentLocation(_ location: CLLocation) {
-            
+          presentCurrentLocationCalled = true
+        }
+        
+        func presentLocationError() {
+            presentLocationErrorCalled = true
         }
         
         func presentWeather(response: AboutToday.TodayWeather.Fetched.Response) {
@@ -68,6 +75,26 @@ final class TodayInteractorTests: XCTestCase {
     }
     
     //MARK: - Tests
+    func test_requestCurrentLocation_whenGivenRestrictedOfLocationAuthorization_shouldCallPresenterToPresentError() {
+        ///given
+        sut.coreLocationAuthorization = .restricted
+        ///when
+        sut.requestCurrentLocation()
+        ///then
+        XCTAssert(todayPresenterSpy.presentLocationErrorCalled)
+    }
+    
+    func test_requestCurrentLocation_test_requestCurrentLocation_whenGivenDeniedOfLocationAuthorization_shouldCallPresenterToPresentError_shouldCallPresenterToPresentError() {
+        ///given
+        sut.coreLocationAuthorization = .denied
+        ///when
+        sut.requestCurrentLocation()
+        ///then
+        XCTAssert(todayPresenterSpy.presentLocationErrorCalled)
+    }
+    
+    //TODO: - Test requestCurrentLocation when use CLLocation delegate
+    
     func test_loadWeather_whenGiveCurrentLocation_shouldCallWeatherWorker() {
         ///given
         sut.currentLocation = CLLocation(latitude: 0.5, longitude: 0.5)

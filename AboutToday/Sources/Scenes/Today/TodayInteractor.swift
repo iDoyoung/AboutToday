@@ -22,11 +22,13 @@ final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
     
     private var weatherWorker: WeatherWorker
     private var coreLocationManager = CLLocationManager()
+    var coreLocationAuthorization: CLAuthorizationStatus
     
     var presenter: TodayPresenting?
     
     init(weatherWorker: WeatherWorker) {
         self.weatherWorker = weatherWorker
+        self.coreLocationAuthorization = coreLocationManager.authorizationStatus
     }
     
     //MARK: Rqeust Location
@@ -36,7 +38,21 @@ final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
     }
     
     func requestCurrentLocation() {
-        coreLocationManager.requestLocation()
+        handleLocationAuthorization()
+    }
+
+    private func handleLocationAuthorization() {
+        switch coreLocationAuthorization {
+        case .restricted, .denied:
+            presenter?.presentLocationError()
+        case .notDetermined, .authorizedAlways, .authorizedWhenInUse://TODO: - Consider when authorization is not determinded.
+            coreLocationManager.requestLocation()
+        @unknown default:
+            #if DEBUG
+            print("Unknown")
+            #endif
+            presenter?.presentLocationError()
+        }
     }
     
     func loadWeather() {
@@ -95,15 +111,7 @@ extension TodayInteractor: CLLocationManagerDelegate {
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        switch manager.authorizationStatus {
-        case .notDetermined, .restricted, .denied:
-            break
-        case .authorizedAlways, .authorizedWhenInUse:
-            requestCurrentLocation()
-        @unknown default:
-            #if DEBUG
-            print("Unknown")
-            #endif
-        }
+        coreLocationAuthorization = manager.authorizationStatus
+        handleLocationAuthorization()
     }
 }
