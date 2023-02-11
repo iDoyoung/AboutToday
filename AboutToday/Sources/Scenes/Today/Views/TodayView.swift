@@ -36,19 +36,22 @@ final class TodayView: UIView {
                     .direction(.row)
                     .define { flex in
                         ///Setup Today Weather
-                        flex.addItem().width(50%).define { flex in
-                            flex.backgroundColor(.systemBackground)
-                            flex.view?.cornerRadius = 16
-                            flex.padding(20)
-                            flex.addItem(todayWeatherView).width(100%).height(100%)
-                        }
+                        flex.addItem(todayWeatherView).backgroundColor(.systemRed)
+                            .grow(1)
+                            .backgroundColor(.systemBackground)
+                            .marginRight(10)
+                            .define { flex in
+                                flex.backgroundColor(.systemBackground)
+                                flex.view?.cornerRadius = 16
+                            }
                         ///Setup Current Location View
-                        flex.addItem().width(50%).define { flex in
-                            flex.backgroundColor(.systemBackground)
-                            flex.view?.cornerRadius = 16
-                            flex.view?.layer.masksToBounds = true
-                            flex.addItem(currentLocationMapView).width(100%).height(100%)
-                        }
+                        flex.addItem(currentLocationMapView)
+                            .grow(1)
+                            .backgroundColor(.systemBackground)
+                            .define { flex in
+                                flex.view?.cornerRadius = 16
+                                flex.view?.layer.masksToBounds = true
+                            }
                     }
                 //TODO: - Set Second row
                 flex.addItem()

@@ -53,21 +53,21 @@ final class TodayWeatherView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         cityLabel.pin
-            .top()
-            .left()
-            .right()
+            .top(20)
+            .left(20)
+            .right(20)
             .sizeToFit(.width)
         currentTempLabel.pin
             .below(of: cityLabel, aligned: .start)
-            .right()
+            .right(20)
             .sizeToFit(.width)
         maxTempLabel.pin
-            .bottom()
-            .left()
+            .bottom(20)
+            .left(20)
             .sizeToFit()
         minTempLabel.pin
             .after(of: maxTempLabel, aligned: .bottom)
-            .right()
+            .right(20)
             .sizeToFit()
     }
 }
