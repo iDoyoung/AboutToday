@@ -21,6 +21,11 @@ final class TodayView: UIView {
         return mapView
     }()
     
+    let currentLocationMapView: CurrentLocationMapView = {
+        let mapView = CurrentLocationMapView()
+        return mapView
+    }()
+    
     init() {
         super.init(frame: .zero)
         backgroundColor = .secondarySystemBackground
@@ -42,12 +47,12 @@ final class TodayView: UIView {
                             flex.padding(20)
                             flex.addItem(todayWeatherView).width(100%).height(100%)
                         }
-                        //TODO: - Setup Current Location View
+                        ///Setup Current Location View
                         flex.addItem().width(50%).define { flex in
                             flex.backgroundColor(.systemBackground)
                             flex.view?.cornerRadius = 16
                             flex.view?.layer.masksToBounds = true
-                            flex.addItem(mapView).width(100%).height(100%)
+                            flex.addItem(currentLocationMapView).width(100%).height(100%)
                         }
                     }
                 //TODO: - Set Second row
