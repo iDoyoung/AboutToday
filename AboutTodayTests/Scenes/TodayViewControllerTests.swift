@@ -64,7 +64,7 @@ final class TodayViewControllerTests: XCTestCase {
         XCTAssert(todayBusinessLogicSpy.requestCurrentLocationCalled)
     }
     
-    func test_displayCurrentLocation_shouldCall() {
+    func test_displayCurrentLocation_shouldCallInteractorToLoadWeather() {
         ///given
         let region = MKCoordinateRegion(.init())
         ///when

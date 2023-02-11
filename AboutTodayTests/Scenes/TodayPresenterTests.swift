@@ -31,6 +31,7 @@ final class TodayPresenterTests: XCTestCase {
     var todayDidplayLogicSpy = TodayDidplayLogicSpy()
     class TodayDidplayLogicSpy: TodayDisplayLogic {
         
+        var displayLocationErrorCalled = false
         var displayCurrentLocationCalled = false
         @Published var displayWeatherCalled = false
         
@@ -40,6 +41,10 @@ final class TodayPresenterTests: XCTestCase {
         
         func displayWeather(viewModel: AboutToday.TodayWeather.Fetched.ViewModel) {
             displayWeatherCalled = true
+        }
+        
+        func displayLocationError() {
+            displayLocationErrorCalled = true
         }
     }
     
@@ -69,5 +74,10 @@ final class TodayPresenterTests: XCTestCase {
         wait(for: [promise], timeout: 1)
         ///then
         XCTAssert(todayDidplayLogicSpy.displayWeatherCalled)
+    }
+    
+    func test_presentLocationError_shouldCallViewController() {
+        sut.presentLocationError()
+        XCTAssert(todayDidplayLogicSpy.displayLocationErrorCalled)
     }
 }

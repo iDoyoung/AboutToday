@@ -11,6 +11,7 @@ import MapKit
 protocol TodayPresenting {
     func presentWeather(response: TodayWeather.Fetched.Response)
     func presentCurrentLocation(_ location: CLLocation)
+    func presentLocationError()
 }
 
 final class TodayPresenter: TodayPresenting {
@@ -39,5 +40,9 @@ final class TodayPresenter: TodayPresenting {
                                                            image: image)
             self.viewController?.displayWeather(viewModel: viewModel)
         }
+    }
+    
+    func presentLocationError() {
+        viewController?.displayLocationError()
     }
 }
