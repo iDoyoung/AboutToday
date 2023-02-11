@@ -40,7 +40,7 @@ final class CurrentLocationMapView: UIView {
     }
     
     func toggleMapVisibility(hide: Bool) {
-        mapView.isHidden = isHidden
-        errorView.isHidden = !isHidden
+        mapView.isHidden = hide
+        errorView.isHidden = !hide
     }
 }
