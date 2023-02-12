@@ -54,6 +54,7 @@
 		7FFA13A729962B230051FC8D /* LocationErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13A629962B230051FC8D /* LocationErrorView.swift */; };
 		7FFA13A9299661970051FC8D /* CurrentLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13A8299661970051FC8D /* CurrentLocationView.swift */; };
 		7FFA13AC2997C5D30051FC8D /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13AB2997C5D30051FC8D /* PhotosService.swift */; };
+		7FFA13AE2999307E0051FC8D /* PhotosRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13AD2999307E0051FC8D /* PhotosRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		7FFA13A629962B230051FC8D /* LocationErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationErrorView.swift; sourceTree = "<group>"; };
 		7FFA13A8299661970051FC8D /* CurrentLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationView.swift; sourceTree = "<group>"; };
 		7FFA13AB2997C5D30051FC8D /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
+		7FFA13AD2999307E0051FC8D /* PhotosRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +360,7 @@
 			children = (
 				7FC08B18298B5E680019538E /* WeatherRepository.swift */,
 				7FAD0FF7298E356C009E452E /* WeatherIconRepository.swift */,
+				7FFA13AD2999307E0051FC8D /* PhotosRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				7FAD10BE29935EC9009E452E /* UIColor+Gradient.swift in Sources */,
 				7FFA13A9299661970051FC8D /* CurrentLocationView.swift in Sources */,
 				7FC08B19298B5E680019538E /* WeatherRepository.swift in Sources */,
+				7FFA13AE2999307E0051FC8D /* PhotosRepository.swift in Sources */,
 				7FC08B16298B57A70019538E /* WeatherWorker.swift in Sources */,
 				7FC08AF52989EAC70019538E /* NetworkDataCodableService.swift in Sources */,
 				7FAD10BC29935B26009E452E /* UIVIew+Corner Radius.swift in Sources */,

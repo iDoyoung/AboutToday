@@ -8,11 +8,11 @@
 import Foundation
 import Photos
 
-protocol PhotosServiceProtocal {
+protocol PhotosServiceProtocol {
     func fetchPhotosAsset(with options: PHFetchOptions) -> PHFetchResult<PHAsset>
 }
 
-final class PhotosService {
+final class PhotosService: PhotosServiceProtocol {
     
     func fetchPhotosAsset(with options: PHFetchOptions) -> PHFetchResult<PHAsset> {
         return PHAsset.fetchAssets(with: options)
