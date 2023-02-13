@@ -13,16 +13,17 @@ protocol TodayBusinessLogic {
     func startUpdatingLocation()
     func requestCurrentLocation()
     func loadWeather()
+    func requestPhotoImages(size: CGSize)
 }
 
 protocol TodayDataStore {
     var weather: Weather? { get }
+    var fetchedPhotosAsset: PHFetchResult<PHAsset>? { get }
 }
 
 final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
     
     private var weatherWorker: WeatherWorker
-    private var photosWorker: PhotosWorker
     private var coreLocationManager = CLLocationManager()
     var coreLocationAuthorization: CLAuthorizationStatus
     
@@ -30,11 +31,11 @@ final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
     
     init(weatherWorker: WeatherWorker, photosWorker: PhotosWorker) {
         self.weatherWorker = weatherWorker
-        self.photosWorker = photosWorker
         self.coreLocationAuthorization = coreLocationManager.authorizationStatus
+        fetchedPhotosAsset = photosWorker.getTodaysPhotos()
     }
     
-    //MARK: Rqeust Location
+    //MARK: Location
     func startUpdatingLocation() {
         coreLocationManager.delegate = self
         coreLocationManager.requestWhenInUseAuthorization()
@@ -58,6 +59,7 @@ final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
         }
     }
     
+    //MARK: Network
     func loadWeather() {
         guard let latitude, let longitude else { return }
         Task {
@@ -77,11 +79,23 @@ final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
             }
         }
     }
-    
-    func fetchPhotos() {
-        fetchedPhotosAsset = photosWorker.getTodaysPhotos()
+   
+    //MARK: Photos
+    func requestPhotoImages(size: CGSize) {
+        guard let fetchedPhotosAsset else { return }
+        var response = [PhotoImage.Fetched.Response]()
+        
+        let imageManager = PHImageManager()
+        fetchedPhotosAsset.enumerateObjects { asset, index, stop in
+            imageManager.requestImage(for: asset, targetSize: size, contentMode: .aspectFill, options: nil) { image, info in
+                if let image {
+                    response.append(PhotoImage.Fetched.Response(image: image))
+                }
+            }
+        }
+        presenter?.presentPhotos(response: response)
     }
-    
+   
     //MARK: - Output
     var weather: Weather?
     var currentLocation: CLLocation?

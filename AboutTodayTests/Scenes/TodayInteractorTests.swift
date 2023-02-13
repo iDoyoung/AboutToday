@@ -78,6 +78,7 @@ final class TodayInteractorTests: XCTestCase {
         var presentCurrentLocationCalled = false
         var presentLocationErrorCalled = false
         @Published var presentWeatherCalled = false
+        var presentPhotosCalled = false
         
         func presentCurrentLocation(_ location: CLLocation) {
           presentCurrentLocationCalled = true
@@ -89,6 +90,10 @@ final class TodayInteractorTests: XCTestCase {
         
         func presentWeather(response: AboutToday.TodayWeather.Fetched.Response) {
             presentWeatherCalled = true
+        }
+        
+        func presentPhotos(response: [AboutToday.PhotoImage.Fetched.Response]) {
+            presentPhotosCalled = true
         }
     }
     
@@ -151,11 +156,14 @@ final class TodayInteractorTests: XCTestCase {
         XCTAssert(todayPresenterSpy.presentWeatherCalled)
     }
     
-    func test_fetch() {
-        ///given
-        ///when
-        sut.fetchPhotos()
-        ///then
+    func test_shouldCalledPhotosWorker() {
         XCTAssert(photosWorkerSpy.getTodaysPhotosCalled)
+    }
+    
+    func test_requestPhotoImages_shouldCallPresenterToPresentPhotos() {
+        ///when
+        sut.requestPhotoImages(size: .zero)
+        ///then
+        XCTAssert(todayPresenterSpy.presentPhotosCalled)
     }
 }
