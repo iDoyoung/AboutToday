@@ -8,7 +8,7 @@
 import Foundation
 import Photos
 
-final class PhotosWorker {
+class PhotosWorker {
     
     private let photosRepository: PhotosRepository
     
