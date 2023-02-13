@@ -9,7 +9,7 @@ import Foundation
 import Photos
 
 protocol PhotosRepository {
-    func fethchPhotosOfToday() -> PHFetchResult<PHAsset>
+    func fetchPhotosOfToday() -> PHFetchResult<PHAsset>
 }
 
 final class DefaultPhotosRepository: PhotosRepository {
@@ -20,7 +20,7 @@ final class DefaultPhotosRepository: PhotosRepository {
         self.service = service
     }
     
-    func fethchPhotosOfToday() -> PHFetchResult<PHAsset> {
+    func fetchPhotosOfToday() -> PHFetchResult<PHAsset> {
         let options = PHFetchOptions()
         let startOfToday = Calendar.current.startOfDay(for: Date())
         options.predicate = NSPredicate(format: "mediaType == %d && !(mediaSubtypes == %d) && creationDate > %@",

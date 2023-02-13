@@ -10,13 +10,13 @@ import Photos
 
 final class PhotosWorker {
     
-    private let photosRepoistory: PhotosRepository
+    private let photosRepository: PhotosRepository
     
-    init(photosRepoistory: PhotosRepository) {
-        self.photosRepoistory = photosRepoistory
+    init(photosRepository: PhotosRepository) {
+        self.photosRepository = photosRepository
     }
     
     func getTodaysPhotos() -> PHFetchResult<PHAsset> {
-        return photosRepoistory.fethchPhotosOfToday()
+        return photosRepository.fetchPhotosOfToday()
     }
 }
