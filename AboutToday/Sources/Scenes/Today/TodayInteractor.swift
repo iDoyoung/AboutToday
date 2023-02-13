@@ -21,13 +21,15 @@ protocol TodayDataStore {
 final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
     
     private var weatherWorker: WeatherWorker
+    private var photosWorker: PhotosWorker
     private var coreLocationManager = CLLocationManager()
     var coreLocationAuthorization: CLAuthorizationStatus
     
     var presenter: TodayPresenting?
     
-    init(weatherWorker: WeatherWorker) {
+    init(weatherWorker: WeatherWorker, photosWorker: PhotosWorker) {
         self.weatherWorker = weatherWorker
+        self.photosWorker = photosWorker
         self.coreLocationAuthorization = coreLocationManager.authorizationStatus
     }
     

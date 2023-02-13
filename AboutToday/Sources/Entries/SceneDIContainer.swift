@@ -26,6 +26,11 @@ final class SceneDIContainer {
         return WeatherWorker(weatherRepository: weatherRepository, weatherIconRepository: wetherIconRepository)
     }
     
+    private func makePhotosWorker() -> PhotosWorker {
+        let photosRepository = DefaultPhotosRepository(service: PhotosService())
+        return PhotosWorker(photosRepository: photosRepository)
+    }
+    
     func makeTodayViewController() -> TodayViewController {
         let viewController = TodayViewController()
         let presenter = makeTodayPresenter(with: viewController)
@@ -35,7 +40,7 @@ final class SceneDIContainer {
     }
     
     private func makeTodayInteractor(with presenter: TodayPresenter) -> TodayInteractor {
-        let interactor = TodayInteractor(weatherWorker: makeWeatherWorker())
+        let interactor = TodayInteractor(weatherWorker: makeWeatherWorker(), photosWorker: makePhotosWorker())
         interactor.presenter = presenter
         return interactor
     }
