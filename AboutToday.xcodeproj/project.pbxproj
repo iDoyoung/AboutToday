@@ -56,6 +56,7 @@
 		7FFA13AC2997C5D30051FC8D /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13AB2997C5D30051FC8D /* PhotosService.swift */; };
 		7FFA13AE2999307E0051FC8D /* PhotosRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13AD2999307E0051FC8D /* PhotosRepository.swift */; };
 		7FFA13B02999AFF80051FC8D /* PhotosWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13AF2999AFF80051FC8D /* PhotosWorker.swift */; };
+		7FFA13B22999F8B70051FC8D /* ListPhotoImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13B12999F8B70051FC8D /* ListPhotoImages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		7FFA13AB2997C5D30051FC8D /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		7FFA13AD2999307E0051FC8D /* PhotosRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRepository.swift; sourceTree = "<group>"; };
 		7FFA13AF2999AFF80051FC8D /* PhotosWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosWorker.swift; sourceTree = "<group>"; };
+		7FFA13B12999F8B70051FC8D /* ListPhotoImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPhotoImages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				7FAD0FF5298CE8E1009E452E /* WeatherViewModel.swift */,
+				7FFA13B12999F8B70051FC8D /* ListPhotoImages.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				7FC08B10298B46710019538E /* TodayRouter.swift in Sources */,
 				7FFA13B02999AFF80051FC8D /* PhotosWorker.swift in Sources */,
 				7F11B621298890AF001F879F /* AppDelegate.swift in Sources */,
+				7FFA13B22999F8B70051FC8D /* ListPhotoImages.swift in Sources */,
 				7F11B6632988B5EF001F879F /* Endpoint.swift in Sources */,
 				7F11B623298890AF001F879F /* SceneDelegate.swift in Sources */,
 				7F11B6652988B8C7001F879F /* NetworkService.swift in Sources */,
