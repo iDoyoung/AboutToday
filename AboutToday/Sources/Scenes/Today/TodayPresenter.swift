@@ -7,11 +7,13 @@
 
 import UIKit
 import MapKit
+import Photos
 
 protocol TodayPresenting {
     func presentWeather(response: TodayWeather.Fetched.Response)
     func presentCurrentLocation(_ location: CLLocation)
     func presentLocationError()
+    func presentPhotos(response: [PhotoImage.Fetched.Response])
 }
 
 final class TodayPresenter: TodayPresenting {
@@ -44,5 +46,8 @@ final class TodayPresenter: TodayPresenting {
     
     func presentLocationError() {
         viewController?.displayLocationError()
+    }
+    
+    func presentPhotos(response: [PhotoImage.Fetched.Response]) {
     }
 }
