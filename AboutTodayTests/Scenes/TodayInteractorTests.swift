@@ -8,6 +8,8 @@
 import XCTest
 import Combine
 import CoreLocation
+import Photos
+
 @testable import AboutToday
 
 final class TodayInteractorTests: XCTestCase {
@@ -18,7 +20,7 @@ final class TodayInteractorTests: XCTestCase {
     
     override func setUpWithError() throws {
         try super.setUpWithError()
-        sut = TodayInteractor(weatherWorker: weatherWorkerSpy)
+        sut = TodayInteractor(weatherWorker: weatherWorkerSpy, photosWorker: photosWorkerSpy)
         sut.presenter = todayPresenterSpy
     }
 
@@ -30,6 +32,7 @@ final class TodayInteractorTests: XCTestCase {
     //MARK: - Test Doubles
     let weatherWorkerSpy = WeatherWorkerSpy(weatherRepository: WeatherRepositoryStub(), weatherIconRepository: WeatherIconRepositoryStub())
     let todayPresenterSpy = TodayPresenterSpy()
+    let photosWorkerSpy = PhotosWorkerSpy(photosRepository: PhotosRepositoryStub())
     
     class WeatherWorkerSpy: WeatherWorker {
        
@@ -38,6 +41,15 @@ final class TodayInteractorTests: XCTestCase {
         override func getWeather(latitude: String, longitude: String) async throws -> Weather {
             weatherWorkerCalled = true
             return Seeds.Dummy.weather
+        }
+    }
+    
+    class PhotosWorkerSpy: PhotosWorker {
+        var getTodaysPhotosCalled = false
+        
+        override func getTodaysPhotos() -> PHFetchResult<PHAsset> {
+            getTodaysPhotosCalled = true
+            return PHFetchResult<PHAsset>()
         }
     }
     
@@ -52,6 +64,12 @@ final class TodayInteractorTests: XCTestCase {
         
         func fetchImage(with imagePath: String) async throws -> Data {
             return Data()
+        }
+    }
+    
+    class PhotosRepositoryStub: PhotosRepository {
+        func fetchPhotosOfToday() -> PHFetchResult<PHAsset> {
+            return PHFetchResult<PHAsset>()
         }
     }
     
@@ -131,5 +149,13 @@ final class TodayInteractorTests: XCTestCase {
         wait(for: [promise], timeout: 1)
         ///then
         XCTAssert(todayPresenterSpy.presentWeatherCalled)
+    }
+    
+    func test_fetch() {
+        ///given
+        ///when
+        sut.fetchPhotos()
+        ///then
+        XCTAssert(photosWorkerSpy.getTodaysPhotosCalled)
     }
 }

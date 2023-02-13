@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import Photos
 
 protocol TodayBusinessLogic {
     func startUpdatingLocation()
@@ -77,9 +78,14 @@ final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
         }
     }
     
+    func fetchPhotos() {
+        fetchedPhotosAsset = photosWorker.getTodaysPhotos()
+    }
+    
     //MARK: - Output
     var weather: Weather?
     var currentLocation: CLLocation?
+    var fetchedPhotosAsset: PHFetchResult<PHAsset>?
     
     private var latitude: String? {
         if let currentLocation {
