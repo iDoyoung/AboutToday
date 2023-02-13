@@ -55,6 +55,7 @@
 		7FFA13A9299661970051FC8D /* CurrentLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13A8299661970051FC8D /* CurrentLocationView.swift */; };
 		7FFA13AC2997C5D30051FC8D /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13AB2997C5D30051FC8D /* PhotosService.swift */; };
 		7FFA13AE2999307E0051FC8D /* PhotosRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13AD2999307E0051FC8D /* PhotosRepository.swift */; };
+		7FFA13B02999AFF80051FC8D /* PhotosWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13AF2999AFF80051FC8D /* PhotosWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		7FFA13A8299661970051FC8D /* CurrentLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationView.swift; sourceTree = "<group>"; };
 		7FFA13AB2997C5D30051FC8D /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		7FFA13AD2999307E0051FC8D /* PhotosRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRepository.swift; sourceTree = "<group>"; };
+		7FFA13AF2999AFF80051FC8D /* PhotosWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosWorker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,10 +223,10 @@
 		7F11B651298890F2001F879F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				7FC08B17298B5D820019538E /* Repositories */,
 				7FC08AF12989E6360019538E /* Models */,
 				7F11B650298890DC001F879F /* Entries */,
 				7F11B658298897A1001F879F /* Service */,
+				7FC08B17298B5D820019538E /* Repositories */,
 				7FC08AFA298A554F0019538E /* Workers */,
 				7F11B65429889173001F879F /* Scenes */,
 				7FAD10B72993562E009E452E /* Utils */,
@@ -338,6 +340,7 @@
 			children = (
 				7FC08B04298A60440019538E /* APIEndpoints.swift */,
 				7FC08B15298B57A70019538E /* WeatherWorker.swift */,
+				7FFA13AF2999AFF80051FC8D /* PhotosWorker.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				7F11B625298890AF001F879F /* ViewController.swift in Sources */,
 				7FC08B05298A60440019538E /* APIEndpoints.swift in Sources */,
 				7FC08B10298B46710019538E /* TodayRouter.swift in Sources */,
+				7FFA13B02999AFF80051FC8D /* PhotosWorker.swift in Sources */,
 				7F11B621298890AF001F879F /* AppDelegate.swift in Sources */,
 				7F11B6632988B5EF001F879F /* Endpoint.swift in Sources */,
 				7F11B623298890AF001F879F /* SceneDelegate.swift in Sources */,
