@@ -52,7 +52,35 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     //TODO: Should Call Interactor to request Location
     
     private func setupNavigationBar() {
+        navigationController?.navigationBar.tintColor = .systemMint
         navigationItem.leftBarButtonItem = navigationLeftBarButtonItem
+        navigationItem.rightBarButtonItem = createRightBarButtonItem()
+    }
+    
+     private func setLeftBarButtonItemImage(_ image: UIImage?) {
+        assert(image != nil, "Image is nil")
+        navigationLeftBarButtonItem.image = image
+    }
+    
+    private func createRightBarButtonItem() -> UIBarButtonItem {
+        let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "map"), style: .plain, target: self, action: nil)
+        return barButtonItem
+    }
+    
+    private func setCityLabel(text: String) {
+        contentView.todayWeatherView.cityLabel.text = text
+    }
+    
+    private func setCurrentTempLabel(text: String) {
+        contentView.todayWeatherView.currentTempLabel.text = text
+    }
+    
+    private func setMaxTempLabel(text: String) {
+        contentView.todayWeatherView.maxTempLabel.text = text
+    }
+    
+    private func setMinTempLabel(text: String) {
+        contentView.todayWeatherView.minTempLabel.text = text
     }
     
     //MARK: - Display Logic
@@ -77,27 +105,6 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     
     func displayPhotos(viewModel: PhotoImage.Fetched.ViewModel) {
         applyTodayPhotosSnapshot(viewModel.images)
-    }
-    
-    private func setLeftBarButtonItemImage(_ image: UIImage?) {
-        assert(image != nil, "Image is nil")
-        navigationLeftBarButtonItem.image = image
-    }
-    
-    private func setCityLabel(text: String) {
-        contentView.todayWeatherView.cityLabel.text = text
-    }
-    
-    private func setCurrentTempLabel(text: String) {
-        contentView.todayWeatherView.currentTempLabel.text = text
-    }
-    
-    private func setMaxTempLabel(text: String) {
-        contentView.todayWeatherView.maxTempLabel.text = text
-    }
-    
-    private func setMinTempLabel(text: String) {
-        contentView.todayWeatherView.minTempLabel.text = text
     }
 }
 
