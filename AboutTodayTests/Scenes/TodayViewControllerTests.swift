@@ -33,6 +33,7 @@ final class TodayViewControllerTests: XCTestCase {
         var requestCurrentLocationCalled = false
         var loadWeatherCalled = false
         var startUpdatingLocationCalled = false
+        var requestPhotoImagesCalled = false
         
         func requestCurrentLocation() {
             requestCurrentLocationCalled = true
@@ -44,6 +45,10 @@ final class TodayViewControllerTests: XCTestCase {
         
         func startUpdatingLocation() {
             startUpdatingLocationCalled = true
+        }
+        
+        func requestPhotoImages(size: CGSize) {
+            requestPhotoImagesCalled = true
         }
     }
     
@@ -71,5 +76,13 @@ final class TodayViewControllerTests: XCTestCase {
         sut.displayCurrentLocation(region: region)
         ///then
         XCTAssert(todayBusinessLogicSpy.loadWeatherCalled)
+    }
+    
+    func test_requestPhotoImages_whenViewDidAppear_shouldCallInteractor() {
+        ///given
+        ///when
+        sut.viewDidAppear(true)
+        ///then
+        XCTAssert(todayBusinessLogicSpy.requestPhotoImagesCalled)
     }
 }

@@ -12,19 +12,25 @@ protocol TodayDisplayLogic: AnyObject {
     func displayWeather(viewModel: TodayWeather.Fetched.ViewModel)
     func displayLocationError()
     func displayCurrentLocation(region: MKCoordinateRegion)
+    func displayPhotos(viewModel: PhotoImage.Fetched.ViewModel)
 }
 
 final class TodayViewController: ViewController, TodayDisplayLogic {
     
     var interactor: TodayBusinessLogic?
     
+    enum Section: CaseIterable {
+        case photos
+    }
+    
     //MARK: UI Properties
     var contentView = TodayView()
+    var dataSource: UICollectionViewDiffableDataSource<Section, UIImage>?
     
     private lazy var navigationLeftBarButtonItem: UIBarButtonItem = {
-        let barButtionItem = UIBarButtonItem(image: nil, style: .plain, target: self, action: nil)
-        barButtionItem.accessibilityLabel = "Today weather"
-        return barButtionItem
+        let barButtonItem = UIBarButtonItem(image: nil, style: .plain, target: self, action: nil)
+        barButtonItem.accessibilityLabel = "Today weather"
+        return barButtonItem
     }()
     
     override func loadView() {
@@ -33,6 +39,7 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureDataSource()
         setupNavigationBar()
         interactor?.startUpdatingLocation()
     }
@@ -40,6 +47,7 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         interactor?.requestCurrentLocation()
+        interactor?.requestPhotoImages(size: .zero)
     }
     //TODO: Should Call Interactor to request Location
     
@@ -67,6 +75,10 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
         contentView.todayWeatherView.setNeedsLayout()
     }
     
+    func displayPhotos(viewModel: PhotoImage.Fetched.ViewModel) {
+        applyTodayPhotosSnapshot(viewModel.images)
+    }
+    
     private func setLeftBarButtonItemImage(_ image: UIImage?) {
         assert(image != nil, "Image is nil")
         navigationLeftBarButtonItem.image = image
@@ -86,5 +98,39 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     
     private func setMinTempLabel(text: String) {
         contentView.todayWeatherView.minTempLabel.text = text
+    }
+}
+
+//MARK: - Collection View
+extension TodayViewController {
+    
+    private func configureDataSource() {
+        let todayPhotoCellRegistration = createTodayPhotoCellRegistration()
+        dataSource = UICollectionViewDiffableDataSource<Section, UIImage>(collectionView: contentView.photoCollectionView) { collectionView, indexPath, itemIdentifier in
+            collectionView.dequeueConfiguredReusableCell(using: todayPhotoCellRegistration, for: indexPath, item: itemIdentifier)
+        }
+        initailSnapshot()
+    }
+    
+    ///Create Cell Registration
+    private func createTodayPhotoCellRegistration() -> UICollectionView.CellRegistration<TodayPhotoCell, UIImage> {
+        return UICollectionView.CellRegistration<TodayPhotoCell, UIImage> { cell, indexPath, image in
+            cell.photoImageView.image = image
+        }
+    }
+    
+    ///Snapshot
+    private func initailSnapshot() {
+        let sections = Section.allCases
+        var snapshot = NSDiffableDataSourceSnapshot<Section, UIImage>()
+        snapshot.appendSections(sections)
+        dataSource?.apply(snapshot)
+        applyTodayPhotosSnapshot([])
+    }
+    
+    private func applyTodayPhotosSnapshot(_ items: [UIImage]) {
+        var snapshot = NSDiffableDataSourceSectionSnapshot<UIImage>()
+        snapshot.append(items)
+        dataSource?.apply(snapshot, to: .photos)
     }
 }
