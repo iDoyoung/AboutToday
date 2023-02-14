@@ -14,6 +14,8 @@ final class CurrentLocationMapView: UIView {
     let mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.showsUserLocation = true
+        mapView.isScrollEnabled = false
+        mapView.isZoomEnabled = false
         return mapView
     }()
     
