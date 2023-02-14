@@ -21,10 +21,15 @@ final class TodayView: UIView {
         return mapView
     }()
     
+    var photoCollectionView: UICollectionView!
+    
     init() {
         super.init(frame: .zero)
         backgroundColor = .secondarySystemBackground
-        
+        ///configure collection view
+        photoCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createCollectionViewLayout())
+        photoCollectionView.isScrollEnabled = false
+        ///hierarchy
         addSubview(rootFlexContainer)
         rootFlexContainer.flex
             .padding(20)
@@ -32,6 +37,7 @@ final class TodayView: UIView {
             .define { flex in
                 ///First Row
                 flex.addItem()
+                    .marginBottom(10)
                     .height(30%)
                     .direction(.row)
                     .define { flex in
@@ -54,9 +60,9 @@ final class TodayView: UIView {
                             }
                     }
                 //TODO: - Set Second row
-                flex.addItem()
+                flex.addItem(photoCollectionView)
                     .backgroundColor(.systemBackground)
-                    .height(50%)
+                    .grow(1)
             }
     }
     
@@ -68,6 +74,24 @@ final class TodayView: UIView {
         super.layoutSubviews()
         rootFlexContainer.pin.all(self.pin.safeArea)
         rootFlexContainer.flex.layout()
+    }
+}
+
+//MARK: - Collection View
+extension TodayView {
+    ///Create Layout
+    private func createCollectionViewLayout() -> UICollectionViewCompositionalLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                              heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                               heightDimension: .fractionalHeight(1))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                       subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .paging
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
     }
 }
 
