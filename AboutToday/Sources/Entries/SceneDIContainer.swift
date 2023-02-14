@@ -10,7 +10,7 @@ import Foundation
 final class SceneDIContainer {
     
     private func makeWeatherService() -> NetworkDataCodableService {
-        let configuration = NetworkAPIConfiguration(baseURL: getOpenWeatherBaseURL(isAPI: true), queryParameters: [ConfidentialKey.openWeatherAPI.key: ConfidentialKey.openWeatherAPI.value])
+        let configuration = NetworkAPIConfiguration(baseURL: getOpenWeatherBaseURL(isAPI: true), queryParameters: [ConfidentialKey.openWeatherAPI.key: ConfidentialKey.openWeatherAPI.value, "units": "metric"])
         let service = NetworkService(configuration: configuration)
         return NetworkDataCodableService(network: service)
     }
