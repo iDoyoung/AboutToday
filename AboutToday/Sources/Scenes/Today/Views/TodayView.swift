@@ -25,7 +25,7 @@ final class TodayView: UIView {
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = .secondarySystemBackground
+        backgroundColor = .systemIndigo
         ///configure collection view
         photoCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createCollectionViewLayout())
         photoCollectionView.isScrollEnabled = false
@@ -42,12 +42,11 @@ final class TodayView: UIView {
                     .direction(.row)
                     .define { flex in
                         ///Setup Today Weather
-                        flex.addItem(todayWeatherView).backgroundColor(.systemRed)
+                        flex.addItem(todayWeatherView)
                             .grow(1)
-                            .backgroundColor(.systemBackground)
                             .marginRight(10)
+                            .backgroundColor(.systemBackground)
                             .define { flex in
-                                flex.backgroundColor(.systemBackground)
                                 flex.view?.cornerRadius = 16
                             }
                         ///Setup Current Location View
