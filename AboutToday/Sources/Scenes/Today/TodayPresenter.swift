@@ -31,9 +31,9 @@ final class TodayPresenter: TodayPresenting {
     func presentWeather(response: TodayWeather.Fetched.Response) {
         DispatchQueue.main.async {
             let city = response.city
-            let currentTemperature = "\(response.temp)"
-            let minTemperature = "\(response.minTemp)"
-            let maxTemperature = "\(response.maxTemp)"
+            let currentTemperature = "\(Int(response.temp.rounded()))º"
+            let minTemperature = "최저:\(Int(response.minTemp.rounded()))º"
+            let maxTemperature = "최고:\(Int(response.maxTemp.rounded()))º"
             let image = UIImage(data: response.imageData)
             let viewModel = TodayWeather.Fetched.ViewModel(city: city,
                                                            currentTemperature: currentTemperature,
