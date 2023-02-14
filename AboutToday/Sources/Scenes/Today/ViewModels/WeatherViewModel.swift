@@ -11,6 +11,11 @@ enum TodayWeather {
     
     enum Fetched {
         
+        struct Repuest {
+            let latitude: String
+            let longitude: String
+        }
+        
         struct Response {
             let city: String
             let temp: Double

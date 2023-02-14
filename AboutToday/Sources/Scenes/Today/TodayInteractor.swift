@@ -61,21 +61,23 @@ final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
     
     //MARK: Network
     func loadWeather() {
-        guard let latitude, let longitude else { return }
-        Task {
-            do {
-                weather = try await weatherWorker.getWeather(latitude: latitude, longitude: longitude)
-                guard let weather else { return }
-                guard let imagePath = weather.weather.first?.icon else { return }
-                let imageData = try await weatherWorker.getWeatherIcon(with: imagePath)
-                let reponse = TodayWeather.Fetched.Response(city: weather.city,
-                                                            temp: weather.main.temp,
-                                                            minTemp: weather.main.minTemp,
-                                                            maxTemp: weather.main.maxTemp,
-                                                            imageData: imageData)
-                presenter?.presentWeather(response: reponse)
-            } catch let error {
-                print(error)
+        if let currentLocation {
+            let request = getTodayWeatherRequest(with: currentLocation)
+            Task {
+                do {
+                    weather = try await weatherWorker.getWeather(latitude: request.latitude, longitude: request.longitude)
+                    guard let weather else { return }
+                    guard let imagePath = weather.weather.first?.icon else { return }
+                    let imageData = try await weatherWorker.getWeatherIcon(with: imagePath)
+                    let reponse = TodayWeather.Fetched.Response(city: weather.city,
+                                                                temp: weather.main.temp,
+                                                                minTemp: weather.main.minTemp,
+                                                                maxTemp: weather.main.maxTemp,
+                                                                imageData: imageData)
+                    presenter?.presentWeather(response: reponse)
+                } catch let error {
+                    print(error)
+                }
             }
         }
     }
@@ -101,20 +103,10 @@ final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
     var currentLocation: CLLocation?
     var fetchedPhotosAsset: PHFetchResult<PHAsset>?
     
-    private var latitude: String? {
-        if let currentLocation {
-            return String(currentLocation.coordinate.latitude)
-        } else {
-            return nil
-        }
-    }
-    
-    private var longitude: String? {
-        if let currentLocation {
-            return String(currentLocation.coordinate.longitude)
-        } else {
-            return nil
-        }
+    private func getTodayWeatherRequest(with location: CLLocation) -> TodayWeather.Fetched.Repuest {
+        let latitiude = String(location.coordinate.latitude)
+        let longitude = String(location.coordinate.longitude)
+        return TodayWeather.Fetched.Repuest(latitude: latitiude, longitude: longitude)
     }
 }
 
