@@ -57,6 +57,7 @@
 		7FFA13AE2999307E0051FC8D /* PhotosRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13AD2999307E0051FC8D /* PhotosRepository.swift */; };
 		7FFA13B02999AFF80051FC8D /* PhotosWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13AF2999AFF80051FC8D /* PhotosWorker.swift */; };
 		7FFA13B22999F8B70051FC8D /* ListPhotoImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13B12999F8B70051FC8D /* ListPhotoImages.swift */; };
+		7FFA13B5299A215C0051FC8D /* TodayPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13B4299A215C0051FC8D /* TodayPhotoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		7FFA13AD2999307E0051FC8D /* PhotosRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRepository.swift; sourceTree = "<group>"; };
 		7FFA13AF2999AFF80051FC8D /* PhotosWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosWorker.swift; sourceTree = "<group>"; };
 		7FFA13B12999F8B70051FC8D /* ListPhotoImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPhotoImages.swift; sourceTree = "<group>"; };
+		7FFA13B4299A215C0051FC8D /* TodayPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +298,7 @@
 		7FAD107C2993282A009E452E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7FFA13B3299A21430051FC8D /* Cells */,
 				7FAD107A299277E2009E452E /* TodayView.swift */,
 				7FAD107D29932A30009E452E /* TodayWeatherView.swift */,
 				7FFA13A629962B230051FC8D /* LocationErrorView.swift */,
@@ -387,6 +390,14 @@
 				7FFA13AB2997C5D30051FC8D /* PhotosService.swift */,
 			);
 			path = Photos;
+			sourceTree = "<group>";
+		};
+		7FFA13B3299A21430051FC8D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7FFA13B4299A215C0051FC8D /* TodayPhotoCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -560,6 +571,7 @@
 				7F11B621298890AF001F879F /* AppDelegate.swift in Sources */,
 				7FFA13B22999F8B70051FC8D /* ListPhotoImages.swift in Sources */,
 				7F11B6632988B5EF001F879F /* Endpoint.swift in Sources */,
+				7FFA13B5299A215C0051FC8D /* TodayPhotoCell.swift in Sources */,
 				7F11B623298890AF001F879F /* SceneDelegate.swift in Sources */,
 				7F11B6652988B8C7001F879F /* NetworkService.swift in Sources */,
 				7FAD0FF3298CCDA6009E452E /* SceneDIContainer.swift in Sources */,
