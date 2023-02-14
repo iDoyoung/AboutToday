@@ -27,12 +27,6 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     var contentView = TodayView()
     var dataSource: UICollectionViewDiffableDataSource<Section, UIImage>?
     
-    private lazy var navigationLeftBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(image: nil, style: .plain, target: self, action: nil)
-        barButtonItem.accessibilityLabel = "Today weather"
-        return barButtonItem
-    }()
-    
     override func loadView() {
         view = contentView
     }
@@ -49,17 +43,23 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
         interactor?.requestCurrentLocation()
         interactor?.requestPhotoImages(size: .zero)
     }
-    //TODO: Should Call Interactor to request Location
     
+   //MARK: Setup
     private func setupNavigationBar() {
         navigationController?.navigationBar.tintColor = .systemMint
-        navigationItem.leftBarButtonItem = navigationLeftBarButtonItem
+        navigationItem.leftBarButtonItem = createLeftBarButtonItem()
         navigationItem.rightBarButtonItem = createRightBarButtonItem()
     }
     
      private func setLeftBarButtonItemImage(_ image: UIImage?) {
         assert(image != nil, "Image is nil")
-        navigationLeftBarButtonItem.image = image
+         navigationItem.leftBarButtonItem?.image = image
+    }
+    
+    private func createLeftBarButtonItem() -> UIBarButtonItem {
+        let barButtonItem = UIBarButtonItem(image: nil, style: .plain, target: self, action: nil)
+        barButtonItem.accessibilityLabel = "Today weather"
+        return barButtonItem
     }
     
     private func createRightBarButtonItem() -> UIBarButtonItem {
