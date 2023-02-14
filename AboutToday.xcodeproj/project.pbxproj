@@ -282,6 +282,7 @@
 				7F11B6622988B5EF001F879F /* Endpoint.swift */,
 				7F11B6642988B8C7001F879F /* NetworkService.swift */,
 				7FC08AF42989EAC70019538E /* NetworkDataCodableService.swift */,
+				7FC08B04298A60440019538E /* APIEndpoints.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -344,7 +345,6 @@
 		7FC08AFA298A554F0019538E /* Workers */ = {
 			isa = PBXGroup;
 			children = (
-				7FC08B04298A60440019538E /* APIEndpoints.swift */,
 				7FC08B15298B57A70019538E /* WeatherWorker.swift */,
 				7FFA13AF2999AFF80051FC8D /* PhotosWorker.swift */,
 			);
