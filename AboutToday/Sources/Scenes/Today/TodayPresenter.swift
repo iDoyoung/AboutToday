@@ -49,5 +49,8 @@ final class TodayPresenter: TodayPresenting {
     }
     
     func presentPhotos(response: [PhotoImage.Fetched.Response]) {
+        let images = response.map(\.image)
+        let viewModel = PhotoImage.Fetched.ViewModel(images: images)
+        viewController?.displayPhotos(viewModel: viewModel)
     }
 }

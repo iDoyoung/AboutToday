@@ -33,6 +33,7 @@ final class TodayPresenterTests: XCTestCase {
         
         var displayLocationErrorCalled = false
         var displayCurrentLocationCalled = false
+        var displayPhotosCalled = false
         @Published var displayWeatherCalled = false
         
         func displayCurrentLocation(region: MKCoordinateRegion) {
@@ -45,6 +46,10 @@ final class TodayPresenterTests: XCTestCase {
         
         func displayLocationError() {
             displayLocationErrorCalled = true
+        }
+        
+        func displayPhotos(viewModel: AboutToday.PhotoImage.Fetched.ViewModel) {
+            displayPhotosCalled = true
         }
     }
     
@@ -79,5 +84,10 @@ final class TodayPresenterTests: XCTestCase {
     func test_presentLocationError_shouldCallViewController() {
         sut.presentLocationError()
         XCTAssert(todayDidplayLogicSpy.displayLocationErrorCalled)
+    }
+    
+    func test_presentPhotos_() {
+        sut.presentPhotos(response: [])
+        XCTAssert(todayDidplayLogicSpy.displayPhotosCalled)
     }
 }
