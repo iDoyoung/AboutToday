@@ -411,9 +411,7 @@
 		7FC08B1E298B9E940019538E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				7FC08B1F298B9EFD0019538E /* TodayInteractorTests.swift */,
-				7FAD0FF9298F2F2D009E452E /* TodayPresenterTests.swift */,
-				7FE7016D2994B79000A4B559 /* TodayViewControllerTests.swift */,
+				7FED2C00299CB18400A6DF6A /* Today */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -424,6 +422,16 @@
 				7FED2BFE299CA5ED00A6DF6A /* WeatherDetail.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7FED2C00299CB18400A6DF6A /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				7FC08B1F298B9EFD0019538E /* TodayInteractorTests.swift */,
+				7FAD0FF9298F2F2D009E452E /* TodayPresenterTests.swift */,
+				7FE7016D2994B79000A4B559 /* TodayViewControllerTests.swift */,
+			);
+			path = Today;
 			sourceTree = "<group>";
 		};
 		7FFA13AA2997C5BC0051FC8D /* Photos */ = {
