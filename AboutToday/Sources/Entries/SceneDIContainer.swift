@@ -67,20 +67,29 @@ final class SceneDIContainer {
         let viewController = WeatherDetailViewController()
         let presenter = makeWeatherDetailPresenter(with: viewController)
         let interactor = makeWeatherDetailInteractor(with: presenter)
+        let router = makeWeatherDetailRouter(with: viewController)
+        router.dataStore = interactor
         viewController.interactor = interactor
+        viewController.router = router
         return viewController
     }
     
-    func makeWeatherDetailInteractor(with presenter: WeatherDetailPresenter) -> WeatherDetailInteractor {
+    private func makeWeatherDetailInteractor(with presenter: WeatherDetailPresenter) -> WeatherDetailInteractor {
         let interactor = WeatherDetailInteractor()
         interactor.presenter = presenter
         return interactor
     }
     
-    func makeWeatherDetailPresenter(with viewController: WeatherDetailViewController) -> WeatherDetailPresenter {
+    private func makeWeatherDetailPresenter(with viewController: WeatherDetailViewController) -> WeatherDetailPresenter {
         let presenter = WeatherDetailPresenter()
         presenter.viewController = viewController
         return presenter
+    }
+    
+    private func makeWeatherDetailRouter(with viewController: WeatherDetailViewController) -> WeatherDetailRouter {
+        let router = WeatherDetailRouter()
+        router.viewController = viewController
+        return router
     }
 }
 
