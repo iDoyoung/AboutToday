@@ -8,6 +8,7 @@
 import Foundation
 
 protocol WeatherDetailBusinessLogic {
+    func loadWeatherDetail()
 }
 
 protocol WeatherDetailDataStore {
@@ -18,4 +19,17 @@ final class WeatherDetailInteractor: WeatherDetailBusinessLogic, WeatherDetailDa
     
     var presenter: WeatherDetailPresentLogic?
     var weather: Weather?
+    
+    func loadWeatherDetail() {
+        guard let weather else { return }
+        let response = WeatherDetail.Loaded.Response(city: weather.city,
+                                                     temp: weather.main.temp,
+                                                     minTemp: weather.main.minTemp,
+                                                     maxTemp: weather.main.maxTemp,
+                                                     description: weather.weather.description,
+                                                     feelsLike: weather.main.feels,
+                                                     humidity: weather.main.humidity,
+                                                     pressure: weather.main.pressure)
+        presenter?.presentWeatherDetail(response: response)
+    }
 }
