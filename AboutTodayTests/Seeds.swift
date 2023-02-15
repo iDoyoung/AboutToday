@@ -21,5 +21,7 @@ enum Seeds {
                                                                         minTemp: 0,
                                                                         maxTemp: 0,
                                                                         imageData: UIImage(systemName: "trash")!.pngData()!)
+        
+        static let responseOfWeatherDetail = WeatherDetail.Loaded.Response(city: "New York", temp: 0, minTemp: 0, maxTemp: 0, description: "Snow", feelsLike: 0, humidity: 0, pressure: 0)
     }
 }
