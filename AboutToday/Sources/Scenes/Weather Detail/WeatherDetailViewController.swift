@@ -28,5 +28,13 @@ final class WeatherDetailViewController: ViewController, WeatherDetailDisplayLog
     
     //MARK: - Display Logic
     func displayWeather(viewModel: WeatherDetail.Loaded.ViewModel) {
+        contentView.cityLabel.text = viewModel.city
+        contentView.currentTempLabel.text = viewModel.currentTemperature
+        contentView.maxTempLabel.text = viewModel.maxTemperature
+        contentView.minTempLabel.text = viewModel.minTemperature
+        contentView.descriptionLabel.text = viewModel.description
+        contentView.feelsLikeLabel.text = viewModel.feelsLike
+        contentView.humidityLabel.text = viewModel.humidity
+        contentView.pressureLabel.text = viewModel.pressure
     }
 }
