@@ -8,10 +8,10 @@
 import UIKit
 
 protocol WeatherDetailDisplayLogic: AnyObject {
+    func displayWeather(viewModel: WeatherDetail.Loaded.ViewModel)
 }
     
 final class WeatherDetailViewController: ViewController, WeatherDetailDisplayLogic {
-
     var interactor: (WeatherDetailBusinessLogic&WeatherDetailDataStore)?
     var router: WeatherDetailDataPassing?
     //MARK: - UI Properties
@@ -23,5 +23,9 @@ final class WeatherDetailViewController: ViewController, WeatherDetailDisplayLog
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    //MARK: - Display Logic
+    func displayWeather(viewModel: WeatherDetail.Loaded.ViewModel) {
     }
 }
