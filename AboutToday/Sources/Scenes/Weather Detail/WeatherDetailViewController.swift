@@ -12,7 +12,8 @@ protocol WeatherDetailDisplayLogic: AnyObject {
     
 final class WeatherDetailViewController: ViewController, WeatherDetailDisplayLogic {
 
-    var interactor: WeatherDetailBusinessLogic?
+    var interactor: (WeatherDetailBusinessLogic&WeatherDetailDataStore)?
+    var router: WeatherDetailDataPassing?
     //MARK: - UI Properties
     var contentView = WeatherDetailView()
     
