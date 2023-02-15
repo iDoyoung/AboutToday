@@ -23,6 +23,7 @@ final class WeatherDetailViewController: ViewController, WeatherDetailDisplayLog
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactor?.loadWeatherDetail()
     }
     
     //MARK: - Display Logic
