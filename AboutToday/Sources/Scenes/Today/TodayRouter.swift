@@ -12,15 +12,19 @@ protocol TodayRouting {
 }
 
 protocol TodayDataPassing {
+    var dataStore: TodayDataStore? { get }
 }
 
 final class TodayRouter: TodayRouting, TodayDataPassing {
     
     weak var viewController: TodayViewController?
+    var dataStore: TodayDataStore?
     var sceneContainer: SceneDIContainer?
     
     func routeToWeatherDetail() {
         guard let destinationViewController = sceneContainer?.makeWeatherDetailViewController() else { return }
+        var destinationDataStore = destinationViewController.router?.dataStore
+        destinationDataStore?.weather = dataStore?.weather
         viewController?.show(destinationViewController, sender: nil)
     }
 }

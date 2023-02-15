@@ -37,6 +37,7 @@ final class SceneDIContainer {
         let presenter = makeTodayPresenter(with: viewController)
         let interactor = makeTodayInteractor(with: presenter)
         let router = makeTodayRouter(with: viewController)
+        router.dataStore = interactor
         viewController.interactor = interactor
         viewController.router = router
         return viewController

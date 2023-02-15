@@ -11,8 +11,11 @@ protocol WeatherDetailBusinessLogic {
 }
 
 protocol WeatherDetailDataStore {
+    var weather: Weather? { get set }
 }
 
 final class WeatherDetailInteractor: WeatherDetailBusinessLogic, WeatherDetailDataStore {
     
+    var presenter: WeatherDetailPresentLogic?
+    var weather: Weather?
 }
