@@ -12,7 +12,7 @@ protocol WeatherDetailDataPassing {
     var dataStore: WeatherDetailDataStore? { get }
 }
 
-final class WeatherDetailRouter: WeatherDetailRouting, WeatherDetailDataStore {
+final class WeatherDetailRouter: WeatherDetailRouting, WeatherDetailDataPassing {
         
     weak var viewController: WeatherDetailViewController?
     var dataStore: WeatherDetailDataStore?
