@@ -22,11 +22,12 @@ final class WeatherDetailInteractor: WeatherDetailBusinessLogic, WeatherDetailDa
     
     func loadWeatherDetail() {
         guard let weather else { return }
+        let description = weather.weather.isEmpty ? "" : weather.weather[0].description
         let response = WeatherDetail.Loaded.Response(city: weather.city,
                                                      temp: weather.main.temp,
                                                      minTemp: weather.main.minTemp,
                                                      maxTemp: weather.main.maxTemp,
-                                                     description: weather.weather.description,
+                                                     description: description,
                                                      feelsLike: weather.main.feels,
                                                      humidity: weather.main.humidity,
                                                      pressure: weather.main.pressure)
