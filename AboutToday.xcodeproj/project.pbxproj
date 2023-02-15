@@ -444,9 +444,9 @@
 		7FED2C01299CB1C300A6DF6A /* WeatherDetail */ = {
 			isa = PBXGroup;
 			children = (
-				7FED2C02299CB1E400A6DF6A /* WeatherDetailPresenterTests.swift */,
-				7FED2C04299CBB6F00A6DF6A /* WeatherDetailInteractorTests.swift */,
 				7FED2C06299CC0C000A6DF6A /* WeatherDetailViewControllerTests.swift */,
+				7FED2C04299CBB6F00A6DF6A /* WeatherDetailInteractorTests.swift */,
+				7FED2C02299CB1E400A6DF6A /* WeatherDetailPresenterTests.swift */,
 			);
 			path = WeatherDetail;
 			sourceTree = "<group>";
