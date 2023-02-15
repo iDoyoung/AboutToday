@@ -58,7 +58,7 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     }
     
     private func createLeftBarButtonItem() -> UIBarButtonItem {
-        let barButtonItem = UIBarButtonItem(image: nil, style: .plain, target: self, action: nil)
+        let barButtonItem = UIBarButtonItem(image: nil, style: .plain, target: self, action: #selector(showWeatherDetail))
         barButtonItem.accessibilityLabel = "Today weather"
         return barButtonItem
     }
@@ -106,6 +106,11 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     
     func displayPhotos(viewModel: PhotoImage.Fetched.ViewModel) {
         applyTodayPhotosSnapshot(viewModel.images)
+    }
+    
+    //MARK: - Control
+    @objc func showWeatherDetail() {
+        router?.routeToWeatherDetail()
     }
 }
 
