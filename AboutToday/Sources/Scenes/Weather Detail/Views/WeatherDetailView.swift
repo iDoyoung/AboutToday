@@ -112,10 +112,11 @@ final class WeatherDetailView: UIView {
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = .systemIndigo
+        backgroundColor = .secondarySystemBackground
         
         addSubview(rootFlexContainer)
         rootFlexContainer.flex
+            .paddingHorizontal(10)
             .direction(.column)
             .alignItems(.center)
             .define { flex in
@@ -147,7 +148,6 @@ final class WeatherDetailView: UIView {
                         flex.addItem(feelsLikeLabel)
                             .marginVertical(5)
                     }
-                    
                 ///Humidity
                 flex.addItem()
                     .marginBottom(5)
@@ -184,7 +184,6 @@ final class WeatherDetailView: UIView {
                             .marginVertical(5)
                     }
             }
-            
     }
     
     required init?(coder: NSCoder) {
