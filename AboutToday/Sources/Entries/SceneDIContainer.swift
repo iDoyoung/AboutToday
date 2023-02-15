@@ -31,6 +31,7 @@ final class SceneDIContainer {
         return PhotosWorker(photosRepository: photosRepository)
     }
     
+    //MARK: - Today Scene
     func makeTodayViewController() -> TodayViewController {
         let viewController = TodayViewController()
         let presenter = makeTodayPresenter(with: viewController)
@@ -47,6 +48,27 @@ final class SceneDIContainer {
     
     private func makeTodayPresenter(with viewController: TodayViewController) -> TodayPresenter {
         let presenter = TodayPresenter()
+        presenter.viewController = viewController
+        return presenter
+    }
+    
+    //MARK: - Weather Detail Scene
+    func makeWeatherDetailViewController() -> WeatherDetailViewController {
+        let viewController = WeatherDetailViewController()
+        let presenter = makeWeatherDetailPresenter(with: viewController)
+        let interactor = makeWeatherDetailInteractor(with: presenter)
+        viewController.interactor = interactor
+        return viewController
+    }
+    
+    func makeWeatherDetailInteractor(with presenter: WeatherDetailPresenter) -> WeatherDetailInteractor {
+        let interactor = WeatherDetailInteractor()
+        interactor.presenter = presenter
+        return interactor
+    }
+    
+    func makeWeatherDetailPresenter(with viewController: WeatherDetailViewController) -> WeatherDetailPresenter {
+        let presenter = WeatherDetailPresenter()
         presenter.viewController = viewController
         return presenter
     }
