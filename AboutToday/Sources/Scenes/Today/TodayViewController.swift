@@ -18,6 +18,7 @@ protocol TodayDisplayLogic: AnyObject {
 final class TodayViewController: ViewController, TodayDisplayLogic {
     
     var interactor: TodayBusinessLogic?
+    var router: (TodayRouting&TodayDataPassing)?
     
     enum Section: CaseIterable {
         case photos
