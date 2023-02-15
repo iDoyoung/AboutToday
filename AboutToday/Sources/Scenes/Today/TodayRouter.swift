@@ -8,6 +8,7 @@
 import UIKit
 
 protocol TodayRouting {
+    func routeToWeatherDetail()
 }
 
 protocol TodayDataPassing {
