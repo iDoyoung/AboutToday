@@ -36,7 +36,9 @@ final class SceneDIContainer {
         let viewController = TodayViewController()
         let presenter = makeTodayPresenter(with: viewController)
         let interactor = makeTodayInteractor(with: presenter)
+        let router = makeTodayRouter(with: viewController)
         viewController.interactor = interactor
+        viewController.router = router
         return viewController
     }
     
@@ -50,6 +52,13 @@ final class SceneDIContainer {
         let presenter = TodayPresenter()
         presenter.viewController = viewController
         return presenter
+    }
+    
+    private func makeTodayRouter(with viewController: TodayViewController) -> TodayRouter {
+        let router = TodayRouter()
+        router.sceneContainer = self
+        router.viewController = viewController
+        return router
     }
     
     //MARK: - Weather Detail Scene
