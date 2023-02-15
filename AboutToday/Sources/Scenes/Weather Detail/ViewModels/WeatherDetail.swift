@@ -12,7 +12,14 @@ enum WeatherDetail {
     enum Loaded {
         
         struct Response {
-            let weather: Weather
+            let city: String
+            let temp: Double
+            let minTemp: Double
+            let maxTemp: Double
+            let description: String
+            let feelsLike: Double
+            let humidity: Int
+            let pressure: Int
         }
         
         struct ViewModel {
@@ -23,7 +30,7 @@ enum WeatherDetail {
             let description: String
             let feelsLike: String
             let humidity: String
-            let pressuer: String
+            let pressure: String
         }
     }
 }
