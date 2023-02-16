@@ -8,7 +8,9 @@
 import UIKit
 
 protocol DetailMapRouting { }
-protocol DetailMapDataPassing { }
+protocol DetailMapDataPassing {
+    var dataStore: DetailMapDataStore? { get }
+}
 
 final class DetailMapRouter: DetailMapRouting, DetailMapDataPassing {
     
