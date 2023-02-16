@@ -98,7 +98,10 @@ final class SceneDIContainer {
         let presenter = makeDetailMapPresenter(with: viewController)
         let interactor = makeDetailMapInteractor(with: presenter)
         let router = makeDetailMapRouter(with: viewController)
+        interactor.presenter = presenter
         router.dataStore = interactor
+        viewController.interactor = interactor
+        viewController.router = router
         return viewController
     }
     
