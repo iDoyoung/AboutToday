@@ -14,7 +14,6 @@ protocol DetailMapDisplayLogic: AnyObject {
 
 final class DetailMapViewController: ViewController, DetailMapDisplayLogic {
     
-    let contentView = DetailMapView()
     var interactor: DetailMapBusinessLogic?
     var router: (DetailMapRouting&DetailMapDataPassing)?
     

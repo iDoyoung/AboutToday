@@ -60,7 +60,6 @@
 		7FED2C03299CB1E400A6DF6A /* WeatherDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED2C02299CB1E400A6DF6A /* WeatherDetailPresenterTests.swift */; };
 		7FED2C05299CBB6F00A6DF6A /* WeatherDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED2C04299CBB6F00A6DF6A /* WeatherDetailInteractorTests.swift */; };
 		7FED2C07299CC0C000A6DF6A /* WeatherDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED2C06299CC0C000A6DF6A /* WeatherDetailViewControllerTests.swift */; };
-		7FED2C11299DAB0500A6DF6A /* DetailMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED2C10299DAB0500A6DF6A /* DetailMapView.swift */; };
 		7FED2C13299DB08A00A6DF6A /* DetailMapnteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED2C12299DB08A00A6DF6A /* DetailMapnteractor.swift */; };
 		7FED2C15299DB2A600A6DF6A /* DetailMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED2C14299DB2A600A6DF6A /* DetailMapPresenter.swift */; };
 		7FED2C17299DBA4300A6DF6A /* DetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED2C16299DBA4300A6DF6A /* DetailMapViewController.swift */; };
@@ -147,7 +146,6 @@
 		7FED2C02299CB1E400A6DF6A /* WeatherDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailPresenterTests.swift; sourceTree = "<group>"; };
 		7FED2C04299CBB6F00A6DF6A /* WeatherDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailInteractorTests.swift; sourceTree = "<group>"; };
 		7FED2C06299CC0C000A6DF6A /* WeatherDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewControllerTests.swift; sourceTree = "<group>"; };
-		7FED2C10299DAB0500A6DF6A /* DetailMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapView.swift; sourceTree = "<group>"; };
 		7FED2C12299DB08A00A6DF6A /* DetailMapnteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapnteractor.swift; sourceTree = "<group>"; };
 		7FED2C14299DB2A600A6DF6A /* DetailMapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapPresenter.swift; sourceTree = "<group>"; };
 		7FED2C16299DBA4300A6DF6A /* DetailMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapViewController.swift; sourceTree = "<group>"; };
@@ -477,7 +475,6 @@
 				7FED2C22299E05D000A6DF6A /* Annotations */,
 				7FED2C1A299DDB4600A6DF6A /* ViewModels */,
 				7FED2C16299DBA4300A6DF6A /* DetailMapViewController.swift */,
-				7FED2C10299DAB0500A6DF6A /* DetailMapView.swift */,
 				7FED2C12299DB08A00A6DF6A /* DetailMapnteractor.swift */,
 				7FED2C14299DB2A600A6DF6A /* DetailMapPresenter.swift */,
 				7FED2C18299DBBC200A6DF6A /* DetailMapRouter.swift */,
@@ -684,7 +681,6 @@
 				7FED2C19299DBBC200A6DF6A /* DetailMapRouter.swift in Sources */,
 				7FAD10BA299356F6009E452E /* UIView+Border.swift in Sources */,
 				7FAD0FF8298E356C009E452E /* WeatherIconRepository.swift in Sources */,
-				7FED2C11299DAB0500A6DF6A /* DetailMapView.swift in Sources */,
 				7FAD108029933A76009E452E /* UIViewPreview.swift in Sources */,
 				7FED2BFA299BBB0F00A6DF6A /* WeatherDetailPresenter.swift in Sources */,
 				7FED2BFF299CA5ED00A6DF6A /* WeatherDetail.swift in Sources */,
