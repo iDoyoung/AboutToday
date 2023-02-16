@@ -91,6 +91,34 @@ final class SceneDIContainer {
         router.viewController = viewController
         return router
     }
+    
+    //MARK: - Detail Map Scene
+    func makeDetailMapViewController() -> DetailMapViewController {
+        let viewController = DetailMapViewController()
+        let presenter = makeDetailMapPresenter(with: viewController)
+        let interactor = makeDetailMapInteractor(with: presenter)
+        let router = makeDetailMapRouter(with: viewController)
+        router.dataStore = interactor
+        return viewController
+    }
+    
+    private func makeDetailMapInteractor(with presenter: DetailMapPresenter) -> DetailMapInteractor {
+        let interactor = DetailMapInteractor()
+        interactor.presenter = presenter
+        return interactor
+    }
+    
+    private func makeDetailMapPresenter(with viewController: DetailMapViewController) -> DetailMapPresenter {
+        let presenter = DetailMapPresenter()
+        presenter.viewController = viewController
+        return presenter
+    }
+    
+    private func makeDetailMapRouter(with viewController: DetailMapViewController) -> DetailMapRouter {
+        let router = DetailMapRouter()
+        
+        return router
+    }
 }
 
 extension SceneDIContainer {
