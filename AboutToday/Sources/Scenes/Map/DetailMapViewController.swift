@@ -24,5 +24,6 @@ final class DetailMapViewController: ViewController, DetailMapDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactor?.loadPhotoLocations()
     }
 }
