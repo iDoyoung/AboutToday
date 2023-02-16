@@ -64,7 +64,7 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     }
     
     private func createRightBarButtonItem() -> UIBarButtonItem {
-        let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "map"), style: .plain, target: self, action: nil)
+        let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "map"), style: .plain, target: self, action: #selector(showDetailMap))
         return barButtonItem
     }
     
@@ -111,6 +111,10 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     //MARK: - Control
     @objc func showWeatherDetail() {
         router?.routeToWeatherDetail()
+    }
+    
+    @objc func showDetailMap() {
+        router?.routeToDetailMap()
     }
 }
 
