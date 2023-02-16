@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Photos
 import CoreLocation
 
 protocol DetailMapBusinessLogic {
@@ -13,13 +14,13 @@ protocol DetailMapBusinessLogic {
 }
 
 protocol DetailMapDataStore {
-    var locations: [CLLocation] { get }
+    var assets: PHFetchResult<PHAsset>? { get set }
 }
 
 final class DetailMapInteractor: DetailMapBusinessLogic, DetailMapDataStore {
     
     var presenter: DetailMapPresenting?
-    var locations: [CLLocation] = []
+    var assets: PHFetchResult<PHAsset>?
     
     func loadPhotoLocations() {
     }
