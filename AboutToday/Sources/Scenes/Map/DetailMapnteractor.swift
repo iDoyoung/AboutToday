@@ -7,7 +7,6 @@
 
 import Foundation
 import Photos
-import CoreLocation
 
 protocol DetailMapBusinessLogic {
     func loadPhotoLocations()
@@ -23,5 +22,14 @@ final class DetailMapInteractor: DetailMapBusinessLogic, DetailMapDataStore {
     var assets: PHFetchResult<PHAsset>?
     
     func loadPhotoLocations() {
+        var locations = [CLLocation]()
+        guard let assets else { return }
+        assets.enumerateObjects { asset, index, _ in
+            if let location = asset.location {
+                locations.append(location)
+            }
+        }
+        let response = PhotosLocation.Loaded.Response(locations: locations)
+        
     }
 }
