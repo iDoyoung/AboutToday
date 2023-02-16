@@ -30,6 +30,6 @@ final class DetailMapInteractor: DetailMapBusinessLogic, DetailMapDataStore {
             }
         }
         let response = PhotosLocation.Loaded.Response(locations: locations)
-        
+        presenter?.presentPhotosLocations(response: response)
     }
 }
