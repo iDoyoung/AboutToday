@@ -15,7 +15,7 @@ final class DetailMapViewController: ViewController, DetailMapDisplayLogic {
 
     let contetnView = DetailMapView()
     var interactor: DetailMapBusinessLogic?
-    var router: (DetailMapRouting&DetailMapDataStore)?
+    var router: (DetailMapRouting&DetailMapDataPassing)?
     
     //MARK: - Life Cycle
     override func loadView() {
