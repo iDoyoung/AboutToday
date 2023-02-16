@@ -27,4 +27,11 @@ final class TodayRouter: TodayRouting, TodayDataPassing {
         destinationDataStore?.weather = dataStore?.weather
         viewController?.show(destinationViewController, sender: nil)
     }
+    
+    func routeToDetailMap() {
+        guard let desinationViewController = sceneContainer?.makeDetailMapViewController() else { return }
+        var destinationDataStore = desinationViewController.router?.dataStore
+        destinationDataStore?.assets = dataStore?.fetchedPhotosAsset
+        viewController?.show(desinationViewController, sender: nil)
+    }
 }
