@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import MapKit
 
 struct PhotosLocation {
     enum Loaded {
@@ -16,6 +17,7 @@ struct PhotosLocation {
         }
         
         struct ViewModel {
+            let annotations: [MKAnnotation]
         }
     }
 }
