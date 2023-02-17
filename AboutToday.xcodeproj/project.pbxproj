@@ -68,6 +68,7 @@
 		7FED2C1F299DEFD500A6DF6A /* DetailMapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED2C1E299DEFD500A6DF6A /* DetailMapInteractor.swift */; };
 		7FED2C21299DF4E100A6DF6A /* DetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED2C20299DF4E100A6DF6A /* DetailViewControllerTests.swift */; };
 		7FED2C24299E05E400A6DF6A /* PhotoAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED2C23299E05E400A6DF6A /* PhotoAnnotation.swift */; };
+		7FED2C26299EF91E00A6DF6A /* DetailMapPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED2C25299EF91E00A6DF6A /* DetailMapPresenterTests.swift */; };
 		7FFA13A729962B230051FC8D /* LocationErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13A629962B230051FC8D /* LocationErrorView.swift */; };
 		7FFA13A9299661970051FC8D /* CurrentLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13A8299661970051FC8D /* CurrentLocationView.swift */; };
 		7FFA13AC2997C5D30051FC8D /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA13AB2997C5D30051FC8D /* PhotosService.swift */; };
@@ -154,6 +155,7 @@
 		7FED2C1E299DEFD500A6DF6A /* DetailMapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapInteractor.swift; sourceTree = "<group>"; };
 		7FED2C20299DF4E100A6DF6A /* DetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerTests.swift; sourceTree = "<group>"; };
 		7FED2C23299E05E400A6DF6A /* PhotoAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAnnotation.swift; sourceTree = "<group>"; };
+		7FED2C25299EF91E00A6DF6A /* DetailMapPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapPresenterTests.swift; sourceTree = "<group>"; };
 		7FFA13A629962B230051FC8D /* LocationErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationErrorView.swift; sourceTree = "<group>"; };
 		7FFA13A8299661970051FC8D /* CurrentLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationView.swift; sourceTree = "<group>"; };
 		7FFA13AB2997C5D30051FC8D /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 			children = (
 				7FED2C20299DF4E100A6DF6A /* DetailViewControllerTests.swift */,
 				7FED2C1E299DEFD500A6DF6A /* DetailMapInteractor.swift */,
+				7FED2C25299EF91E00A6DF6A /* DetailMapPresenterTests.swift */,
 			);
 			path = DetailMap;
 			sourceTree = "<group>";
@@ -727,6 +730,7 @@
 				7FAD0FFA298F2F2D009E452E /* TodayPresenterTests.swift in Sources */,
 				7FED2C05299CBB6F00A6DF6A /* WeatherDetailInteractorTests.swift in Sources */,
 				7F11B6672988D3C3001F879F /* NetworkServiceTests.swift in Sources */,
+				7FED2C26299EF91E00A6DF6A /* DetailMapPresenterTests.swift in Sources */,
 				7FE7016E2994B79000A4B559 /* TodayViewControllerTests.swift in Sources */,
 				7F11B638298890B0001F879F /* AboutTodayTests.swift in Sources */,
 				7FC08B20298B9EFD0019538E /* TodayInteractorTests.swift in Sources */,
