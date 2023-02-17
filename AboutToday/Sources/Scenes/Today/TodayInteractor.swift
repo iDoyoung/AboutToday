@@ -87,9 +87,10 @@ final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
         guard let fetchedPhotosAsset else { return }
         var response = [PhotoImage.Fetched.Response]()
         
-        let imageManager = PHImageManager()
+        let options = PHImageRequestOptions()
+        options.isSynchronous = true
         fetchedPhotosAsset.enumerateObjects { asset, index, stop in
-            imageManager.requestImage(for: asset, targetSize: size, contentMode: .aspectFill, options: nil) { image, info in
+            PHImageManager.default().requestImage(for: asset, targetSize: size, contentMode: .aspectFill, options: options) { image, info in
                 if let image {
                     response.append(PhotoImage.Fetched.Response(image: image))
                 }
