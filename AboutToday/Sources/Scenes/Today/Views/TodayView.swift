@@ -25,7 +25,7 @@ final class TodayView: UIView {
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = .systemIndigo
+        backgroundColor = .secondarySystemBackground
         ///configure collection view
         photoCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createCollectionViewLayout())
         photoCollectionView.isScrollEnabled = false
