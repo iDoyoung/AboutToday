@@ -34,7 +34,7 @@ final class TodayPresenter: TodayPresenting {
             let currentTemperature = "\(Int(response.temp.rounded()))º"
             let minTemperature = "최저:\(Int(response.minTemp.rounded()))º"
             let maxTemperature = "최고:\(Int(response.maxTemp.rounded()))º"
-            let image = UIImage(data: response.imageData)?.withRenderingMode(.alwaysOriginal)
+            let image = UIImage(data: response.imageData, scale: 2)
             let viewModel = TodayWeather.Fetched.ViewModel(city: city,
                                                            currentTemperature: currentTemperature,
                                                            minTemperature: minTemperature,

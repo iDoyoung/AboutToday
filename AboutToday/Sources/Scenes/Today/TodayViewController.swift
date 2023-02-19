@@ -47,14 +47,14 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     
    //MARK: Setup
     private func setupNavigationBar() {
-        navigationController?.navigationBar.tintColor = .systemMint
+        navigationController?.navigationBar.tintColor = .systemGreen
         navigationItem.leftBarButtonItem = createLeftBarButtonItem()
         navigationItem.rightBarButtonItem = createRightBarButtonItem()
     }
     
-     private func setLeftBarButtonItemImage(_ image: UIImage?) {
+    private func setLeftBarButtonItemImage(_ image: UIImage?) {
         assert(image != nil, "Image is nil")
-         navigationItem.leftBarButtonItem?.image = image
+        navigationItem.leftBarButtonItem?.image = image
     }
     
     private func createLeftBarButtonItem() -> UIBarButtonItem {
