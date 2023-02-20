@@ -29,7 +29,7 @@ final class TodayPresenter: TodayPresenting {
     }
     
     func presentWeather(response: TodayWeather.Fetched.Response) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
             let city = response.city
             let currentTemperature = "\(Int(response.temp.rounded()))º"
             let minTemperature = "최저:\(Int(response.minTemp.rounded()))º"
@@ -40,7 +40,7 @@ final class TodayPresenter: TodayPresenting {
                                                            minTemperature: minTemperature,
                                                            maxTemperature: maxTemperature,
                                                            image: image)
-            self.viewController?.displayWeather(viewModel: viewModel)
+            self?.viewController?.displayWeather(viewModel: viewModel)
         }
     }
     
@@ -49,8 +49,10 @@ final class TodayPresenter: TodayPresenting {
     }
     
     func presentPhotos(response: [PhotoImage.Fetched.Response]) {
-        let images = response.map(\.image)
-        let viewModel = PhotoImage.Fetched.ViewModel(images: images)
-        viewController?.displayPhotos(viewModel: viewModel)
+        DispatchQueue.main.async { [weak self] in
+            let images = response.map(\.image)
+            let viewModel = PhotoImage.Fetched.ViewModel(images: images)
+            self?.viewController?.displayPhotos(viewModel: viewModel)
+        }
     }
 }

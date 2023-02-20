@@ -33,7 +33,7 @@ final class TodayPresenterTests: XCTestCase {
         
         var displayLocationErrorCalled = false
         var displayCurrentLocationCalled = false
-        var displayPhotosCalled = false
+        @Published var displayPhotosCalled = false
         @Published var displayWeatherCalled = false
         
         func displayCurrentLocation(region: MKCoordinateRegion) {
@@ -87,7 +87,16 @@ final class TodayPresenterTests: XCTestCase {
     }
     
     func test_presentPhotos_() {
+        let promise = expectation(description: "Display Logic be called")
+        todayDidplayLogicSpy.$displayPhotosCalled
+            .sink { isCalled in
+                if isCalled {
+                    promise.fulfill()
+                }
+            }
+            .store(in: &cancellableBag)
         sut.presentPhotos(response: [])
+        wait(for: [promise], timeout: 1)
         XCTAssert(todayDidplayLogicSpy.displayPhotosCalled)
     }
 }
