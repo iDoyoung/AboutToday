@@ -78,7 +78,7 @@ final class TodayInteractorTests: XCTestCase {
         var presentCurrentLocationCalled = false
         var presentLocationErrorCalled = false
         @Published var presentWeatherCalled = false
-        var presentPhotosCalled = false
+        @Published var presentPhotosCalled = false
         
         func presentCurrentLocation(_ location: CLLocation) {
           presentCurrentLocationCalled = true
@@ -161,8 +161,18 @@ final class TodayInteractorTests: XCTestCase {
     }
     
     func test_requestPhotoImages_shouldCallPresenterToPresentPhotos() {
+        ///given
+        let promise = expectation(description: "Presenter be called")
+        todayPresenterSpy.$presentPhotosCalled
+            .sink { isCalled in
+                if isCalled {
+                    promise.fulfill()
+                }
+            }
+            .store(in: &cancellableBag)
         ///when
         sut.requestPhotoImages(size: .zero)
+        wait(for: [promise], timeout: 1)
         ///then
         XCTAssert(todayPresenterSpy.presentPhotosCalled)
     }

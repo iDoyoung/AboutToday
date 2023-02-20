@@ -9,6 +9,10 @@ import Foundation
 import CoreLocation
 import Photos
 
+enum FethcError: Error {
+    case noData
+}
+
 protocol TodayBusinessLogic {
     func startUpdatingLocation()
     func requestCurrentLocation()
@@ -84,21 +88,38 @@ final class TodayInteractor: NSObject, TodayBusinessLogic, TodayDataStore {
    
     //MARK: Photos
     func requestPhotoImages(size: CGSize) {
-        guard let fetchedPhotosAsset else { return }
-        var response = [PhotoImage.Fetched.Response]()
-        
-        let options = PHImageRequestOptions()
-        options.isSynchronous = true
-        fetchedPhotosAsset.enumerateObjects { asset, index, stop in
-            PHImageManager.default().requestImage(for: asset, targetSize: size, contentMode: .aspectFill, options: options) { image, info in
-                if let image {
-                    response.append(PhotoImage.Fetched.Response(image: image))
-                }
-            }
+        Task {
+            await presenter?.presentPhotos(response: reqeustImages(size: size))
         }
-        presenter?.presentPhotos(response: response)
     }
    
+    private func reqeustImages(size: CGSize) async -> [PhotoImage.Fetched.Response] {
+        var response = [PhotoImage.Fetched.Response]()
+        if let fetchedPhotosAsset {
+            for index in 0..<fetchedPhotosAsset.count {
+                let image = await withCheckedContinuation { continuation in
+                    reqeustImageSynchronous(with: fetchedPhotosAsset[index], size: size) { image in
+                        continuation.resume(returning: image)
+                    }
+                }
+                response.append(image)
+            }
+        }
+        return response
+    }
+    
+    private func reqeustImageSynchronous(with asset: PHAsset, size: CGSize, completion: @escaping (PhotoImage.Fetched.Response) -> Void) {
+        DispatchQueue.global().async {
+            let options = PHImageRequestOptions()
+            options.isSynchronous = true
+            let imageManger = PHImageManager.default()
+            imageManger.requestImage(for: asset, targetSize: size, contentMode: .aspectFill, options: options) { image, _ in
+                guard let image else { return }
+                completion(PhotoImage.Fetched.Response(image: image))
+            }
+        }
+    }
+    
     //MARK: - Output
     var weather: Weather?
     var currentLocation: CLLocation?

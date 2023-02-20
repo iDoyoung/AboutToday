@@ -105,6 +105,7 @@ final class TodayViewController: ViewController, TodayDisplayLogic {
     }
     
     func displayPhotos(viewModel: PhotoImage.Fetched.ViewModel) {
+        assert(Thread.isMainThread, "Thread is not main")
         applyTodayPhotosSnapshot(viewModel.images)
     }
     
