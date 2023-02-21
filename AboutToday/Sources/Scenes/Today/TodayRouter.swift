@@ -33,6 +33,7 @@ final class TodayRouter: TodayRouting, TodayDataPassing {
         guard let desinationViewController = sceneContainer?.makeDetailMapViewController() else { return }
         var destinationDataStore = desinationViewController.router?.dataStore
         destinationDataStore?.assets = dataStore?.fetchedPhotosAsset
+        destinationDataStore?.currentLocation = dataStore?.currentLocation
         viewController?.show(desinationViewController, sender: nil)
     }
 }

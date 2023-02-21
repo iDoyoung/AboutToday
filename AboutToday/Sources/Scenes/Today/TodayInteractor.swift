@@ -22,6 +22,7 @@ protocol TodayBusinessLogic {
 
 protocol TodayDataStore {
     var weather: Weather? { get }
+    var currentLocation: CLLocation? { get }
     var fetchedPhotosAsset: PHFetchResult<PHAsset>? { get }
 }
 
