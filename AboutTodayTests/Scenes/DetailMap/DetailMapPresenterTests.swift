@@ -6,6 +6,9 @@
 //
 
 import XCTest
+import CoreLocation
+import MapKit
+
 @testable import AboutToday
 
 final class DetailMapPresenterTests: XCTestCase {
@@ -28,11 +31,16 @@ final class DetailMapPresenterTests: XCTestCase {
     var detailMapViewControllerSpy = DetailMapDisplayLogicSpy()
     
     final class DetailMapDisplayLogicSpy: DetailMapDisplayLogic {
-    
+        
         var displayAnnotationOfLocationCalled = false
+        var displayCurrentLocationCalled = false
         
         func displayAnnotationOfLocation(viewModel: AboutToday.PhotosLocation.Loaded.ViewModel) {
             displayAnnotationOfLocationCalled = true
+        }
+        
+        func displayCurrentLocation(region: MKCoordinateRegion) {
+            displayCurrentLocationCalled = true
         }
     }
     
@@ -44,5 +52,10 @@ final class DetailMapPresenterTests: XCTestCase {
         sut.presentPhotosLocations(response: response)
         ///then
         XCTAssert(detailMapViewControllerSpy.displayAnnotationOfLocationCalled)
+    }
+    
+    func test_presentCurrentLocation_shouldCallViewController() {
+        sut.presentCurrentLocation(CLLocation())
+        XCTAssert(detailMapViewControllerSpy.displayCurrentLocationCalled)
     }
 }

@@ -23,6 +23,7 @@ final class DetailMapPresenter: DetailMapPresenting {
         let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
                                                 longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion(center: coordinate, span: span)
+        viewController?.displayCurrentLocation(region: region)
     }
     
     func presentPhotosLocations(response: PhotosLocation.Loaded.Response) {
