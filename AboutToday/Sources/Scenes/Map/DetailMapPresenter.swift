@@ -10,11 +10,20 @@ import MapKit
 
 protocol DetailMapPresenting {
     func presentPhotosLocations(response: PhotosLocation.Loaded.Response)
+    func presentCurrentLocation(_ location: CLLocation)
 }
+
 
 final class DetailMapPresenter: DetailMapPresenting {
     
     weak var viewController: DetailMapDisplayLogic?
+    private let span = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
+    
+    func presentCurrentLocation(_ location: CLLocation) {
+        let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
+                                                longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+    }
     
     func presentPhotosLocations(response: PhotosLocation.Loaded.Response) {
         let annotations = response.locations
