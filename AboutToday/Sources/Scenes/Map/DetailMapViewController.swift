@@ -10,6 +10,7 @@ import MapKit
 
 protocol DetailMapDisplayLogic: AnyObject {
     func displayAnnotationOfLocation(viewModel: PhotosLocation.Loaded.ViewModel)
+    func displayCurrentLocation(region: MKCoordinateRegion)
 }
 
 final class DetailMapViewController: ViewController, DetailMapDisplayLogic {
@@ -33,6 +34,7 @@ final class DetailMapViewController: ViewController, DetailMapDisplayLogic {
         registerMapAnnotationViews()
         mapView.delegate = self
         interactor?.loadPhotoLocations()
+        interactor?.loadCurrentLocation()
     }
     
     /// - Tag: Register annotation views
@@ -43,6 +45,10 @@ final class DetailMapViewController: ViewController, DetailMapDisplayLogic {
     //MARK: - Display Logics
     func displayAnnotationOfLocation(viewModel: PhotosLocation.Loaded.ViewModel) {
         mapView.addAnnotations(viewModel.annotations)
+    }
+    
+    func displayCurrentLocation(region: MKCoordinateRegion) {
+        mapView.setRegion(region, animated: false)
     }
 }
 

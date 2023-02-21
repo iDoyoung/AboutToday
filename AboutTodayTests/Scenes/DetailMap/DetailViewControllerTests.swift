@@ -29,11 +29,19 @@ final class DetailViewControllerTests: XCTestCase {
     let detailMapInteractorSpy = DetailMapInteractorSpy()
     
     final class DetailMapInteractorSpy: DetailMapBusinessLogic, DetailMapDataStore {
+        
+        var currentLocation: CLLocation?
+        
         var loadPhotoLocationsCalled = false
+        var loadCurrentLocationCalled = false
         var assets: PHFetchResult<PHAsset>? = nil
         
         func loadPhotoLocations() {
             loadPhotoLocationsCalled = true
+        }
+        
+        func loadCurrentLocation() {
+            loadCurrentLocationCalled = true
         }
         
     }
@@ -42,5 +50,10 @@ final class DetailViewControllerTests: XCTestCase {
     func test_viewDidLoad_shouldCallInteractorToLoadPhotoLocations() {
         sut.viewDidLoad()
         XCTAssert(detailMapInteractorSpy.loadPhotoLocationsCalled)
+    }
+    
+    func test_viewDidLoad_shouldCallInteractorToLoadCurrentLocation() {
+        sut.viewDidLoad()
+        XCTAssert(detailMapInteractorSpy.loadCurrentLocationCalled)
     }
 }
