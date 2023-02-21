@@ -17,7 +17,7 @@ protocol DetailMapPresenting {
 final class DetailMapPresenter: DetailMapPresenting {
     
     weak var viewController: DetailMapDisplayLogic?
-    private let span = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
+    private let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     
     func presentCurrentLocation(_ location: CLLocation) {
         let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
