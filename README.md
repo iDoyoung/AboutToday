@@ -51,3 +51,133 @@ func test_loadWeather_whenGiveCurrentLocation_shouldCallPresenter() {
 
 **Performance**
 Async/await이 Suspend를 통하여, (즉, Thread Control을 System이 맡아중요도에 따라 처리하는 방법) Async를 처리하는 것이, GCD보다 퍼포먼스 측면에서 얼마나 유용한지 이해 부족
+#### Directory List
+
+    ├── AboutToday
+    │   ├── Resources
+    │   │   └── Assets.xcassets
+    │   │       ├── AccentColor.colorset
+    │   │       │   └── Contents.json
+    │   │       ├── AppIcon.appiconset
+    │   │       │   └── Contents.json
+    │   │       └── Contents.json
+    │   ├── Sources
+    │   │   ├── Entries
+    │   │   │   ├── AppDelegate.swift
+    │   │   │   ├── SceneDIContainer.swift
+    │   │   │   └── SceneDelegate.swift
+    │   │   ├── Models
+    │   │   │   └── Weather.swift
+    │   │   ├── Repositories
+    │   │   │   ├── PhotosRepository.swift
+    │   │   │   ├── WeatherIconRepository.swift
+    │   │   │   └── WeatherRepository.swift
+    │   │   ├── Scenes
+    │   │   │   ├── Map
+    │   │   │   │   ├── Annotations
+    │   │   │   │   │   └── PhotoAnnotation.swift
+    │   │   │   │   ├── DetailMapPresenter.swift
+    │   │   │   │   ├── DetailMapRouter.swift
+    │   │   │   │   ├── DetailMapViewController.swift
+    │   │   │   │   ├── DetailMapnteractor.swift
+    │   │   │   │   └── ViewModels
+    │   │   │   │       └── PhotosLocation.swift
+    │   │   │   ├── Today
+    │   │   │   │   ├── TodayInteractor.swift
+    │   │   │   │   ├── TodayPresenter.swift
+    │   │   │   │   ├── TodayRouter.swift
+    │   │   │   │   ├── TodayViewController.swift
+    │   │   │   │   ├── ViewModels
+    │   │   │   │   │   ├── ListPhotoImages.swift
+    │   │   │   │   │   └── WeatherViewModel.swift
+    │   │   │   │   └── Views
+    │   │   │   │       ├── Cells
+    │   │   │   │       │   └── TodayPhotoCell.swift
+    │   │   │   │       ├── CurrentLocationView.swift
+    │   │   │   │       ├── LocationErrorView.swift
+    │   │   │   │       ├── TodayView.swift
+    │   │   │   │       └── TodayWeatherView.swift
+    │   │   │   ├── ViewController.swift
+    │   │   │   └── Weather Detail
+    │   │   │       ├── ViewModels
+    │   │   │       │   └── WeatherDetail.swift
+    │   │   │       ├── Views
+    │   │   │       │   └── WeatherDetailView.swift
+    │   │   │       ├── WeatherDetailInteractor.swift
+    │   │   │       ├── WeatherDetailPresenter.swift
+    │   │   │       ├── WeatherDetailRouter.swift
+    │   │   │       └── WeatherDetailViewController.swift
+    │   │   ├── Service
+    │   │   │   ├── Network
+    │   │   │   │   ├── APIEndpoints.swift
+    │   │   │   │   ├── Endpoint.swift
+    │   │   │   │   ├── NetworkAPIConfiguration.swift
+    │   │   │   │   ├── NetworkDataCodableService.swift
+    │   │   │   │   ├── NetworkService.swift
+    │   │   │   │   └── Requester.swift
+    │   │   │   └── Photos
+    │   │   │       └── PhotosService.swift
+    │   │   ├── Utils
+    │   │   │   ├── Extensions
+    │   │   │   │   ├── UIColor+Gradient.swift
+    │   │   │   │   ├── UIVIew+Corner Radius.swift
+    │   │   │   │   └── UIView+Border.swift
+    │   │   │   └── UIViewPreview.swift
+    │   │   └── Workers
+    │   │       ├── PhotosWorker.swift
+    │   │       └── WeatherWorker.swift
+    │   └── Supportings
+    │       ├── Base.lproj
+    │       │   └── LaunchScreen.storyboard
+    │       ├── ConfidentialKey.xcconfig
+    │       ├── Info.plist
+    │       └── ar.lproj
+    │           └── LaunchScreen.strings
+    ├── AboutToday.xcodeproj
+    │   ├── project.pbxproj
+    │   ├── project.xcworkspace
+    │   │   ├── contents.xcworkspacedata
+    │   │   ├── xcshareddata
+    │   │   │   ├── IDEWorkspaceChecks.plist
+    │   │   │   └── swiftpm
+    │   │   │       ├── Package.resolved
+    │   │   │       └── configuration
+    │   │   └── xcuserdata
+    │   │       └── doyoung.xcuserdatad
+    │   │           └── UserInterfaceState.xcuserstate
+    │   ├── xcshareddata
+    │   │   └── xcschemes
+    │   │       ├── AboutToday - arabic.xcscheme
+    │   │       └── AboutToday.xcscheme
+    │   └── xcuserdata
+    │       └── doyoung.xcuserdatad
+    │           ├── xcdebugger
+    │           │   └── Breakpoints_v2.xcbkptlist
+    │           └── xcschemes
+    │               └── xcschememanagement.plist
+    ├── AboutTodayTests
+    │   ├── Network
+    │   │   ├── NetworkCodableServiceTests.swift
+    │   │   └── NetworkServiceTests.swift
+    │   ├── Scenes
+    │   │   ├── DetailMap
+    │   │   │   ├── DetailMapInteractor.swift
+    │   │   │   ├── DetailMapPresenterTests.swift
+    │   │   │   └── DetailViewControllerTests.swift
+    │   │   ├── Today
+    │   │   │   ├── TodayInteractorTests.swift
+    │   │   │   ├── TodayPresenterTests.swift
+    │   │   │   └── TodayViewControllerTests.swift
+    │   │   └── WeatherDetail
+    │   │       ├── WeatherDetailInteractorTests.swift
+    │   │       ├── WeatherDetailPresenterTests.swift
+    │   │       └── WeatherDetailViewControllerTests.swift
+    │   ├── Seeds.swift
+    │   └── Worker
+    │       └── WeatherWorkerTests.swift
+    ├── AboutTodayUITests
+    │   ├── AboutTodayUITests.swift
+    │   └── AboutTodayUITestsLaunchTests.swift
+    └── README.md
+
+
